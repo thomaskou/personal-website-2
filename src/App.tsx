@@ -13,10 +13,12 @@ const App: React.FC<IProps> = (props: IProps): JSX.Element => {
 
             <Navbar/>
 
-            <Switch>
-                <Route exact path="/" component={Homepage}/>
-                <Route exact path="/experience" component={Experience}/>
-            </Switch>
+            <main>
+                <Switch>
+                    <Route exact path="/" component={Homepage}/>
+                    <Route exact path="/experience" component={Experience}/>
+                </Switch>
+            </main>
 
         </BrowserRouter>
     );

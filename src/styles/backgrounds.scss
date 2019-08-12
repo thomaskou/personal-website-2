@@ -48,6 +48,10 @@
     height: 100vh;
     background-position: right;
     background-size: contain;
+
+    @media only screen and (max-width: $break-sm-max) {
+        background-size: cover;
+    }
 }
 
 .background-cntower {
@@ -65,16 +69,12 @@
             right: 25%;
         }
     }
-
-    @media only screen and (max-width: $break-sm-max) {
-        background-size: cover;
-    }
 }
 
 .background-leds-vertical {
     @extend .background-side;
     background-image: url("/images/bg_leds_side.jpg");
-    filter: grayscale(90%);
+    filter: contrast(120%) brightness(120%) grayscale(90%);
 
     &::after {
         @extend .bg-color-white;
@@ -85,9 +85,5 @@
             width: 5.5%;
             right: 23.75%;
         }
-    }
-
-    @media only screen and (max-width: $break-sm-max) {
-        background-size: cover;
     }
 }

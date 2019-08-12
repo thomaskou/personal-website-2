@@ -1,0 +1,26 @@
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aligned-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aligned-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.spaced-row {
+    @extend .aligned-row;
+    justify-content: space-between;
+}
+
+.position-relative {
+    position: relative;
+}

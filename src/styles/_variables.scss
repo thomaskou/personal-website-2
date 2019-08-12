@@ -1,5 +1,42 @@
-@import url('https://fonts.googleapis.com/css?family=Aldrich&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
 
-$font-title: "Righteous", sans-serif;
-$font-decorative: "Aldrich", sans-serif;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Fonts
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$font-primary: "Roboto Mono", monospace;
+
+$font-title: "Roboto Mono", monospace;
+$font-decorative: "Roboto Mono", monospace;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Spacing
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$spacing-xs: 5px;
+$spacing-sm: 15px;
+$spacing-md: 30px;
+$spacing-lg: 50px;
+$spacing-xl: 80px;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Breakpoints
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$break-xs-max: 575.98px;
+$break-sm-min: 576px;
+$break-sm-max: 767.98px;
+$break-md-min: 768px;
+$break-md-max: 991.98px;
+$break-lg-min: 992px;
+$break-lg-max: 1199.98px;
+$break-xl-min: 1200px;
+
+$break-xl-max: 1365.98px;
+$break-xxl-min: 1366px;
+$break-xxl-max: 1439.98px;
+$break-xxxl-min: 1440px;

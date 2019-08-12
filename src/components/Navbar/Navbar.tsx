@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
-import _ from "lodash";
+import { Col, Row } from "react-bootstrap";
+import values from "lodash/values";
 import "./Navbar.scss";
 
 interface IProps {
@@ -25,18 +25,22 @@ const navLinks: INavbarLinkList = {
         text: "Experience",
         route: "/experience",
     },
+    projects: {
+        text: "Projects",
+        route: "/projects",
+    },
 };
 
 const Navbar: React.FC<IProps> = (props: IProps): JSX.Element => {
     return (
         <nav className="navbar spaced-row">
 
-            <h3 className="font-title text-uppercase">Thomas Kou</h3>
+            <h3 className="font-title text-uppercase bg-color-white">Thomas Kou</h3>
 
             <Row className="font-decorative text-lowercase">
-                {_.values(navLinks).map((item: INavbarLink, index: number): JSX.Element => (
+                {values(navLinks).map((item: INavbarLink, index: number): JSX.Element => (
                     <Col key={"navbar-link-" + index}>
-                        <Link to={item.route}>{item.text}</Link>
+                        <Link to={item.route} className="bg-color-white">{item.text}</Link>
                     </Col>
                 ))}
             </Row>

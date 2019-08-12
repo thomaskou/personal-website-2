@@ -1,22 +1,36 @@
-.centered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@import "./_variables.scss";
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Bordered boxes with padding
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.boxed-padding-xs {
+    border: 1px solid black;
+    padding: $spacing-xs;
+}
+.boxed-padding-sm {
+    border: 1px solid black;
+    padding: $spacing-sm;
+}
+.boxed-padding-md {
+    border: 1px solid black;
+    padding: $spacing-md;
+}
+.boxed-padding-lg {
+    border: 1px solid black;
+    padding: $spacing-lg;
+}
+.boxed-padding-xl {
+    border: 1px solid black;
+    padding: $spacing-xl;
 }
 
-.aligned-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.aligned-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+//////////////////////////////////////////////////////////////////////////////////////////
+// Drop shadows
+//////////////////////////////////////////////////////////////////////////////////////////
 
-.spaced-row {
-    @extend .aligned-row;
-    justify-content: space-between;
+.shadow-black-diag {
+    box-shadow: 8px 8px 0 0 #303030;
 }

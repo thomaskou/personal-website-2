@@ -19,11 +19,11 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
         return (boxItem: string, boxIndex: number): ReactNode => {
             return <React.Fragment>
 
-                {boxIndex > 0 && <span className="h-spacing-xs"/>}
+                {boxIndex > 0 && <span className="mx-1"/>}
 
                 <span
                     key={`${keyPrefix}-${index}-box-${boxIndex}`}
-                    className="text-muted font-size-075 boxed-padding-xs"
+                    className="text-muted font-size-075 boxed-black p-1"
                 >
                     {boxItem}
                 </span>
@@ -38,25 +38,31 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
         );
     }
 
+    const cardClasses: string =
+        "font-primary " +                       // Font
+        "my-3 my-md-4 my-lg-5 " +               // Responsive margin
+        "boxed-black p-45 " +                   // Border and padding
+        "bg-color-white shadow-black-diag";     // Background and shadow
+
     return (
         <div
             key={`${keyPrefix}-${index}`}
-            className="font-primary v-margin-lg boxed-padding-md bg-color-white shadow-black-diag"
+            className={cardClasses}
         >
 
             {title && <strong className="text-uppercase font-size-125">{title}</strong>}
-            {subtitle && <p className="text-capitalize v-margin-xs">{subtitle}</p>}
+            {subtitle && <p className="text-capitalize my-1">{subtitle}</p>}
             {grayText && <p className="text-uppercase text-muted font-size-09">{grayText}</p>}
 
             {boxList && boxList.length > 0 &&
-                <div className="v-margin-sm aligned-row flex-wrap">
+                <div className="my-2 aligned-row flex-wrap">
                     {boxList.map(createBoxListItem(index))}
                 </div>
             }
 
             {description && <React.Fragment>
-                <div className="v-spacing-sm"/>
-                <ul className="h-margin-md">
+                <div className="my-3"/>
+                <ul className="mx-4">
                     {description.map(createDescriptionItem(index))}
                 </ul>
             </React.Fragment>}

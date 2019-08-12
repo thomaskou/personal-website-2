@@ -2,28 +2,20 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// Bordered boxes with padding
+// Custom spacing
 //////////////////////////////////////////////////////////////////////////////////////////
 
-.boxed-padding-xs {
-    border: 1px solid black;
-    padding: $spacing-xs;
+.p-45 {
+    padding: $spacing-45 !important;
 }
-.boxed-padding-sm {
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Bordered boxes
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.boxed-black {
     border: 1px solid black;
-    padding: $spacing-sm;
-}
-.boxed-padding-md {
-    border: 1px solid black;
-    padding: $spacing-md;
-}
-.boxed-padding-lg {
-    border: 1px solid black;
-    padding: $spacing-lg;
-}
-.boxed-padding-xl {
-    border: 1px solid black;
-    padding: $spacing-xl;
 }
 
 

@@ -29,10 +29,16 @@ const navLinks: INavbarLinkList = {
         text: "Projects",
         route: "/projects",
     },
+    about: {
+        text: "About",
+        route: "/about",
+    },
 };
 
 const Navbar: React.FC<IProps> = (props: IProps): JSX.Element => {
-    return (
+    return <React.Fragment>
+        <div className="py-4"/>
+
         <nav className="navbar spaced-row">
 
             <h3 className="font-title text-uppercase bg-color-white">Thomas Kou</h3>
@@ -46,7 +52,7 @@ const Navbar: React.FC<IProps> = (props: IProps): JSX.Element => {
             </Row>
 
         </nav>
-    );
+    </React.Fragment>;
 };
 
 Navbar.defaultProps = {};

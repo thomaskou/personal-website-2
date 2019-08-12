@@ -36,12 +36,10 @@ const navLinks: INavbarLinkList = {
 };
 
 const Navbar: React.FC<IProps> = (props: IProps): JSX.Element => {
-    return <React.Fragment>
-        <div className="py-4"/>
+    return (
+        <nav className="navbar spaced-row font-size-125">
 
-        <nav className="navbar spaced-row">
-
-            <h3 className="font-title text-uppercase bg-color-white">Thomas Kou</h3>
+            <h3 className="font-title text-uppercase bg-color-white mr-5">Thomas Kou</h3>
 
             <Row className="font-decorative text-lowercase">
                 {values(navLinks).map((item: INavbarLink, index: number): JSX.Element => (
@@ -52,7 +50,7 @@ const Navbar: React.FC<IProps> = (props: IProps): JSX.Element => {
             </Row>
 
         </nav>
-    </React.Fragment>;
+    );
 };
 
 Navbar.defaultProps = {};

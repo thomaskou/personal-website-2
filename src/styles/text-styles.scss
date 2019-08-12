@@ -29,39 +29,83 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// Font sizes
-//////////////////////////////////////////////////////////////////////////////////////////
-
-.font-size-05 {
-    font-size: 0.5rem;
-}
-.font-size-075 {
-    font-size: 0.75rem;
-}
-.font-size-09 {
-    font-size: 0.9rem;
-}
-.font-size-1 {
-    font-size: 1rem;
-}
-.font-size-125 {
-    font-size: 1.25rem;
-}
-.font-size-15 {
-    font-size: 1.5rem;
-}
-.font-size-4 {
-    font-size: 4rem;
-}
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
 // Decorative classes
 //////////////////////////////////////////////////////////////////////////////////////////
 
 .text-underline {
     text-decoration: underline;
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Font sizes
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.font-size-05, .font-size-xs-05 { font-size: 0.5rem; }
+.font-size-sm-05 { @media only screen and (min-width: $break-sm-min) { font-size: 0.5rem; } }
+.font-size-md-05 { @media only screen and (min-width: $break-md-min) { font-size: 0.5rem; } }
+.font-size-lg-05 { @media only screen and (min-width: $break-lg-min) { font-size: 0.5rem; } }
+.font-size-xl-05 { @media only screen and (min-width: $break-xl-min) { font-size: 0.5rem; } }
+
+.font-size-065, .font-size-xs-065 { font-size: 0.65rem; }
+.font-size-sm-065 { @media only screen and (min-width: $break-sm-min) { font-size: 0.65rem; } }
+.font-size-md-065 { @media only screen and (min-width: $break-md-min) { font-size: 0.65rem; } }
+.font-size-lg-065 { @media only screen and (min-width: $break-lg-min) { font-size: 0.65rem; } }
+.font-size-xl-065 { @media only screen and (min-width: $break-xl-min) { font-size: 0.65rem; } }
+
+.font-size-075, .font-size-xs-075 { font-size: 0.75rem; }
+.font-size-sm-075 { @media only screen and (min-width: $break-sm-min) { font-size: 0.75rem; } }
+.font-size-md-075 { @media only screen and (min-width: $break-md-min) { font-size: 0.75rem; } }
+.font-size-lg-075 { @media only screen and (min-width: $break-lg-min) { font-size: 0.75rem; } }
+.font-size-xl-075 { @media only screen and (min-width: $break-xl-min) { font-size: 0.75rem; } }
+
+.font-size-09, .font-size-xs-09 { font-size: 0.9rem; }
+.font-size-sm-09 { @media only screen and (min-width: $break-sm-min) { font-size: 0.9rem; } }
+.font-size-md-09 { @media only screen and (min-width: $break-md-min) { font-size: 0.9rem; } }
+.font-size-lg-09 { @media only screen and (min-width: $break-lg-min) { font-size: 0.9rem; } }
+.font-size-xl-09 { @media only screen and (min-width: $break-xl-min) { font-size: 0.9rem; } }
+
+.font-size-1, .font-size-xs-1 { font-size: 1rem; }
+.font-size-sm-1 { @media only screen and (min-width: $break-sm-min) { font-size: 1rem; } }
+.font-size-md-1 { @media only screen and (min-width: $break-md-min) { font-size: 1rem; } }
+.font-size-lg-1 { @media only screen and (min-width: $break-lg-min) { font-size: 1rem; } }
+.font-size-xl-1 { @media only screen and (min-width: $break-xl-min) { font-size: 1rem; } }
+
+.font-size-125, .font-size-xs-125 { font-size: 1.25rem; }
+.font-size-sm-125 { @media only screen and (min-width: $break-sm-min) { font-size: 1.25rem; } }
+.font-size-md-125 { @media only screen and (min-width: $break-md-min) { font-size: 1.25rem; } }
+.font-size-lg-125 { @media only screen and (min-width: $break-lg-min) { font-size: 1.25rem; } }
+.font-size-xl-125 { @media only screen and (min-width: $break-xl-min) { font-size: 1.25rem; } }
+
+.font-size-15, .font-size-xs-15 { font-size: 1.5rem; }
+.font-size-sm-15 { @media only screen and (min-width: $break-sm-min) { font-size: 1.5rem; } }
+.font-size-md-15 { @media only screen and (min-width: $break-md-min) { font-size: 1.5rem; } }
+.font-size-lg-15 { @media only screen and (min-width: $break-lg-min) { font-size: 1.5rem; } }
+.font-size-xl-15 { @media only screen and (min-width: $break-xl-min) { font-size: 1.5rem; } }
+
+.font-size-2, .font-size-xs-2 { font-size: 2rem; }
+.font-size-sm-2 { @media only screen and (min-width: $break-sm-min) { font-size: 2rem; } }
+.font-size-md-2 { @media only screen and (min-width: $break-md-min) { font-size: 2rem; } }
+.font-size-lg-2 { @media only screen and (min-width: $break-lg-min) { font-size: 2rem; } }
+.font-size-xl-2 { @media only screen and (min-width: $break-xl-min) { font-size: 2rem; } }
+
+.font-size-25, .font-size-xs-25 { font-size: 2.5rem; }
+.font-size-sm-25 { @media only screen and (min-width: $break-sm-min) { font-size: 2.5rem; } }
+.font-size-md-25 { @media only screen and (min-width: $break-md-min) { font-size: 2.5rem; } }
+.font-size-lg-25 { @media only screen and (min-width: $break-lg-min) { font-size: 2.5rem; } }
+.font-size-xl-25 { @media only screen and (min-width: $break-xl-min) { font-size: 2.5rem; } }
+
+.font-size-3, .font-size-xs-3 { font-size: 3rem; }
+.font-size-sm-3 { @media only screen and (min-width: $break-sm-min) { font-size: 3rem; } }
+.font-size-md-3 { @media only screen and (min-width: $break-md-min) { font-size: 3rem; } }
+.font-size-lg-3 { @media only screen and (min-width: $break-lg-min) { font-size: 3rem; } }
+.font-size-xl-3 { @media only screen and (min-width: $break-xl-min) { font-size: 3rem; } }
+
+.font-size-4, .font-size-xs-4 { font-size: 4rem; }
+.font-size-sm-4 { @media only screen and (min-width: $break-sm-min) { font-size: 4rem; } }
+.font-size-md-4 { @media only screen and (min-width: $break-md-min) { font-size: 4rem; } }
+.font-size-lg-4 { @media only screen and (min-width: $break-lg-min) { font-size: 4rem; } }
+.font-size-xl-4 { @media only screen and (min-width: $break-xl-min) { font-size: 4rem; } }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

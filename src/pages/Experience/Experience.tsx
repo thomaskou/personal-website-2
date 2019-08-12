@@ -9,7 +9,7 @@ interface IProps {
 interface IExperience {
     company: string;
     position: string;
-    date: string;
+    date: string | ReactNode;
     location?: string;
     description?: string[];
     technologies?: string[];
@@ -39,7 +39,7 @@ const experience: IExperienceList = {
     tutor: {
         company: "STEM Tutor",
         position: "Math/physics/chemistry tutor",
-        date: "October 2016 -> April 2018",
+        date: <React.Fragment>October 2016 -> <wbr/>April 2018</React.Fragment>,
         location: "Burnaby, BC",
         description: ["Tutored elementary and high school students."],
     },
@@ -48,11 +48,22 @@ const experience: IExperienceList = {
 const Experience: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     function createExperience(item: IExperience, index: number): ReactNode {
+
+        const appendLocation: ReactNode = (
+            <React.Fragment>
+                <wbr/>| <wbr/>{item.location}
+            </React.Fragment>
+        );
+
         return (
             <ListCard
                 title={item.company}
                 subtitle={item.position}
-                grayText={item.date + (item.location && ` | ${item.location}`)}
+                grayText={
+                    item.location
+                        ? <React.Fragment>{item.date} {appendLocation}</React.Fragment>
+                        : item.date
+                }
                 boxList={item.technologies}
                 description={item.description}
 

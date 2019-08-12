@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 interface IProps {
     title?: string;
     subtitle?: string;
-    grayText?: string;
+    grayText?: string | ReactNode;
     boxList?: string[];
     description?: string[];
 
@@ -23,7 +23,7 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
 
                 <span
                     key={`${keyPrefix}-${index}-box-${boxIndex}`}
-                    className="text-muted font-size-075 boxed-black p-1"
+                    className="text-muted font-size-065 font-size-sm-075 boxed-black p-1 my-1"
                 >
                     {boxItem}
                 </span>
@@ -52,7 +52,7 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
 
             {title && <strong className="text-uppercase font-size-125">{title}</strong>}
             {subtitle && <p className="text-capitalize my-1">{subtitle}</p>}
-            {grayText && <p className="text-uppercase text-muted font-size-09">{grayText}</p>}
+            {grayText && <p className="text-uppercase text-muted text-nowrap font-size-09">{grayText}</p>}
 
             {boxList && boxList.length > 0 &&
                 <div className="my-2 aligned-row flex-wrap">

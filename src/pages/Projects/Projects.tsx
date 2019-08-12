@@ -25,6 +25,12 @@ const projects: IProjectList = {
         technologies: ["Java"],
         description: ["A low-level emulator for the Nintendo Gameboy."],
     },
+    website: {
+        title: "Personal Website v2",
+        date: "August 2019",
+        technologies: ["TypeScript", "Node.js", "React", "Sass", "Bootstrap"],
+        description: ["A really cool website."],
+    },
     audioLights: {
         title: "Audio Lights",
         date: "November 2018",
@@ -68,7 +74,7 @@ const Projects: React.FC<IProps> = (props: IProps): JSX.Element => {
             <div className="background-leds-vertical"/>
 
             <Container className="position-relative">
-                <h1 className="font-primary font-weight-bold side-text-label">PROJECTS</h1>
+                <h1 className="font-primary side-text-label">\\\\\\ <strong>PROJECTS</strong></h1>
                 {values(projects).map(createProjects)}
             </Container>
 

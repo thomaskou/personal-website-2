@@ -26,12 +26,12 @@ const experience: IExperienceList = {
         date: "April 2019 -> August 2019",
         location: "Vancouver, BC",
         description: ["Full-stack web/mobile software developer."],
-        technologies: ["TypeScript", "Node.js", "React (Native)", "Redux", "iOS/Android", "REST", "SOAP", "Sass", "Bootstrap", "LambdaTest"],
+        technologies: ["TypeScript", "Node.js", "React (Native)", "Redux", "iOS/Android", "Sass", "Bootstrap", "LambdaTest", "CircleCI", "REST", "SOAP"],
     },
     sfu: {
         company: "Simon Fraser University CODE",
         position: "Digital media intern",
-        date: "August 2018",
+        date: "August 2017",
         location: "Burnaby, BC",
         description: ["Designed/edited graphics and videos for online courses."],
         technologies: ["Photoshop", "Premiere Pro", "HTML", "CSS", "Hype 3"],
@@ -39,7 +39,7 @@ const experience: IExperienceList = {
     tutor: {
         company: "STEM Tutor",
         position: "Math/physics/chemistry tutor",
-        date: "August 2018",
+        date: "October 2016 -> April 2018",
         location: "Burnaby, BC",
         description: ["Tutored elementary and high school students."],
     },
@@ -68,7 +68,7 @@ const Experience: React.FC<IProps> = (props: IProps): JSX.Element => {
             <div className="background-cntower"/>
 
             <Container className="position-relative">
-                <h1 className="font-primary font-weight-bold side-text-label">EXPERIENCE</h1>
+                <h1 className="font-primary side-text-label">\\\\\\ <strong>EXPERIENCE</strong></h1>
                 {values(experience).map(createExperience)}
             </Container>
 

@@ -2,12 +2,55 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
+// Custom sizing
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.height-10em, .height-xs-10em { height: 10em; }
+.height-sm-10em { @media only screen and (min-width: $break-sm-min) { height: 10em; } }
+.height-md-10em { @media only screen and (min-width: $break-md-min) { height: 10em; } }
+.height-lg-10em { @media only screen and (min-width: $break-lg-min) { height: 10em; } }
+.height-xl-10em { @media only screen and (min-width: $break-xl-min) { height: 10em; } }
+
+.height-12-5em, .height-xs-12-5em { height: 12.5em; }
+.height-sm-12-5em { @media only screen and (min-width: $break-sm-min) { height: 12.5em; } }
+.height-md-12-5em { @media only screen and (min-width: $break-md-min) { height: 12.5em; } }
+.height-lg-12-5em { @media only screen and (min-width: $break-lg-min) { height: 12.5em; } }
+.height-xl-12-5em { @media only screen and (min-width: $break-xl-min) { height: 12.5em; } }
+
+.height-15em, .height-xs-15em { height: 15em; }
+.height-sm-15em { @media only screen and (min-width: $break-sm-min) { height: 15em; } }
+.height-md-15em { @media only screen and (min-width: $break-md-min) { height: 15em; } }
+.height-lg-15em { @media only screen and (min-width: $break-lg-min) { height: 15em; } }
+.height-xl-15em { @media only screen and (min-width: $break-xl-min) { height: 15em; } }
+
+.height-17-5em, .height-xs-17-5em { height: 17.5em; }
+.height-sm-17-5em { @media only screen and (min-width: $break-sm-min) { height: 17.5em; } }
+.height-md-17-5em { @media only screen and (min-width: $break-md-min) { height: 17.5em; } }
+.height-lg-17-5em { @media only screen and (min-width: $break-lg-min) { height: 17.5em; } }
+.height-xl-17-5em { @media only screen and (min-width: $break-xl-min) { height: 17.5em; } }
+
+.height-20em, .height-xs-20em { height: 20em; }
+.height-sm-20em { @media only screen and (min-width: $break-sm-min) { height: 20em; } }
+.height-md-20em { @media only screen and (min-width: $break-md-min) { height: 20em; } }
+.height-lg-20em { @media only screen and (min-width: $break-lg-min) { height: 20em; } }
+.height-xl-20em { @media only screen and (min-width: $break-xl-min) { height: 20em; } }
+
+.height-25em, .height-xs-25em { height: 25em; }
+.height-sm-25em { @media only screen and (min-width: $break-sm-min) { height: 25em; } }
+.height-md-25em { @media only screen and (min-width: $break-md-min) { height: 25em; } }
+.height-lg-25em { @media only screen and (min-width: $break-lg-min) { height: 25em; } }
+.height-xl-25em { @media only screen and (min-width: $break-xl-min) { height: 25em; } }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 // Custom spacing
 //////////////////////////////////////////////////////////////////////////////////////////
 
-.p-45 {
-    padding: $spacing-45 !important;
-}
+.p-45, .p-xs-45 { padding: $spacing-45 !important; }
+.p-sm-45 { @media only screen and (min-width: $break-sm-min) { padding: $spacing-45 !important; } }
+.p-md-45 { @media only screen and (min-width: $break-md-min) { padding: $spacing-45 !important; } }
+.p-lg-45 { @media only screen and (min-width: $break-lg-min) { padding: $spacing-45 !important; } }
+.p-xl-45 { @media only screen and (min-width: $break-xl-min) { padding: $spacing-45 !important; } }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -25,4 +68,13 @@
 
 .shadow-black-diag {
     box-shadow: 8px 8px 0 0 #303030;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Miscellaneous
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.overflow-hidden {
+    overflow: hidden;
 }

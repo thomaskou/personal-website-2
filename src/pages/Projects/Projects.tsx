@@ -12,6 +12,7 @@ interface IProject {
     date: string;
     technologies?: string[];
     description?: string[];
+    thumbnail?: string;
 }
 
 interface IProjectList {
@@ -36,6 +37,7 @@ const projects: IProjectList = {
         date: "November 2018",
         technologies: ["Python", "Raspberry Pi", "MQTT"],
         description: ["Visualizes microphone/music data live on an LED matrix."],
+        thumbnail: "/images/project-thumbnails/led-bars.gif",
     },
     markov: {
         title: "Sentence Predictor",
@@ -61,6 +63,7 @@ const Projects: React.FC<IProps> = (props: IProps): JSX.Element => {
                 grayText={item.date}
                 boxList={item.technologies}
                 description={item.description}
+                image={item.thumbnail}
 
                 keyPrefix="exp"
                 index={index}

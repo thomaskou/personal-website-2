@@ -37,6 +37,12 @@
     filter: grayscale(85%);
 }
 
+.background-keyboard {
+    @extend .background-full;
+    background-image: url("/images/bg_keyboard.png");
+    filter: brightness(85%);
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Side-screen backgrounds

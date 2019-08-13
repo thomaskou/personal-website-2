@@ -18,14 +18,11 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     function createBoxListItem(index: number): (boxItem: string, boxIndex: number) => ReactNode {
         return (boxItem: string, boxIndex: number): ReactNode => {
-            return <React.Fragment>
+            return <React.Fragment key={`${keyPrefix}-${index}-box-${boxIndex}`}>
 
                 {boxIndex > 0 && <span className="mx-1"/>}
 
-                <span
-                    key={`${keyPrefix}-${index}-box-${boxIndex}`}
-                    className="text-muted font-size-065 font-size-sm-075 boxed-black p-1 my-1"
-                >
+                <span className="text-muted font-size-065 font-size-sm-075 boxed-black p-1 my-1">
                     {boxItem}
                 </span>
                 
@@ -47,13 +44,11 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     const imageClasses: string =
         "overflow-hidden centered background-contained w-100 " +
-        "height-10em height-sm-15em height-md-17-5em height-lg-20em height-xl-25em ";
+        "height-10em height-sm-15em height-md-17-5em height-lg-20em height-xl-25em " +
+        "mb-3 mb-lg-4";
 
     return (
-        <div
-            key={`${keyPrefix}-${index}`}
-            className={cardClasses}
-        >
+        <div className={cardClasses}>
 
             {image && <figure className={imageClasses} style={{backgroundImage: `url(${image})`}}/>}
             {title && <strong className="text-uppercase font-size-125">{title}</strong>}

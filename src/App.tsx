@@ -15,14 +15,12 @@ const App: React.FC<IProps> = (props: IProps): JSX.Element => {
 
             <Navbar/>
 
-            <main>
-                <Switch>
-                    <Route exact path="/" component={Homepage}/>
-                    <Route exact path="/experience" component={Experience}/>
-                    <Route exact path="/projects" component={Projects}/>
-                    <Route component={NotFound}/>
-                </Switch>
-            </main>
+            <Switch>
+                <Route exact path="/" component={Homepage}/>
+                <Route exact path="/experience" component={Experience}/>
+                <Route exact path="/projects" component={Projects}/>
+                <Route component={NotFound}/>
+            </Switch>
 
         </BrowserRouter>
     );

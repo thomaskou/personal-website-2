@@ -57,6 +57,8 @@ const Experience: React.FC<IProps> = (props: IProps): JSX.Element => {
 
         return (
             <ListCard
+                key={`exp-${index}`}
+                
                 title={item.company}
                 subtitle={item.position}
                 grayText={
@@ -74,7 +76,7 @@ const Experience: React.FC<IProps> = (props: IProps): JSX.Element => {
     }
 
     return (
-        <React.Fragment>
+        <main>
 
             <div className="background-cntower"/>
 
@@ -83,7 +85,7 @@ const Experience: React.FC<IProps> = (props: IProps): JSX.Element => {
                 {values(experience).map(createExperience)}
             </Container>
 
-        </React.Fragment>
+        </main>
     );
 };
 

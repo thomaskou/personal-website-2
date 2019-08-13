@@ -50,6 +50,7 @@ const projects: IProjectList = {
         date: "Ongoing",
         technologies: ["FL Studio", "YouTube", "MAMPlayer"],
         description: ["Producing and uploading arrangements and visualizations of instrumental songs."],
+        thumbnail: "/images/project-thumbnails/mamplayer.gif",
     },
 };
 
@@ -58,6 +59,8 @@ const Projects: React.FC<IProps> = (props: IProps): JSX.Element => {
     function createProjects(item: IProject, index: number): ReactNode {
         return (
             <ListCard
+                key={`proj-${index}`}
+
                 title={item.title}
                 subtitle={item.subtitle}
                 grayText={item.date}
@@ -65,14 +68,14 @@ const Projects: React.FC<IProps> = (props: IProps): JSX.Element => {
                 description={item.description}
                 image={item.thumbnail}
 
-                keyPrefix="exp"
+                keyPrefix="proj"
                 index={index}
             />
         );
     }
 
     return (
-        <React.Fragment>
+        <main>
 
             <div className="background-leds-vertical"/>
 
@@ -81,7 +84,7 @@ const Projects: React.FC<IProps> = (props: IProps): JSX.Element => {
                 {values(projects).map(createProjects)}
             </Container>
 
-        </React.Fragment>
+        </main>
     );
 };
 

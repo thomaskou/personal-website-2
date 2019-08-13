@@ -12,15 +12,15 @@ const NotFound: React.FC<IProps> = (props: IProps): JSX.Element => {
         "my-3 my-sm-5 py-md-3 py-lg-5";                     // Responsive margin/padding
         
     return (
-        <React.Fragment>
-            <div className="background-rails"/>
+        <main>
+            <div className="background-keyboard"/>
 
             <Container>
                 <div className={textContainerClasses}>
                     <span className="bg-color-white">Uh oh, page not found!</span>
                 </div>
             </Container>
-        </React.Fragment>
+        </main>
     );
 };
 

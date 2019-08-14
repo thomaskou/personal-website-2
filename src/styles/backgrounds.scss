@@ -17,6 +17,10 @@
     background-color: white;
 }
 
+.bg-color-black {
+    background-color: black;
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Full-screen backgrounds
@@ -65,33 +69,33 @@
     background-image: url("/images/bg_cntower.jpg");
     filter: grayscale(85%);
 
-    &::after {
-        @extend .bg-color-white;
-        @media only screen and (min-width: $break-md-min) {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 7.5%;
-            right: 25%;
-        }
-    }
+    // &::after {
+    //     @extend .bg-color-white;
+    //     @media only screen and (min-width: $break-md-min) {
+    //         content: "";
+    //         position: absolute;
+    //         height: 100%;
+    //         width: 7.5%;
+    //         right: 25%;
+    //     }
+    // }
 }
 
 .background-leds-vertical {
     @extend .background-side;
     background-image: url("/images/bg_leds_side.jpg");
-    filter: contrast(120%) brightness(120%) grayscale(90%);
+    filter: contrast(120%) brightness(120%) grayscale(98%);
 
-    &::after {
-        @extend .bg-color-white;
-        @media only screen and (min-width: $break-md-min) {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 5.5%;
-            right: 23.75%;
-        }
-    }
+    // &::after {
+    //     @extend .bg-color-white;
+    //     @media only screen and (min-width: $break-md-min) {
+    //         content: "";
+    //         position: absolute;
+    //         height: 100%;
+    //         width: 5.5%;
+    //         right: 23.75%;
+    //     }
+    // }
 }
 
 

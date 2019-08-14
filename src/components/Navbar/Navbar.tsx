@@ -39,12 +39,12 @@ const Navbar: React.FC<IProps> = (props: IProps): JSX.Element => {
     return (
         <nav className="navbar spaced-row font-size-125">
 
-            <h3 className="font-title text-uppercase bg-color-white mr-5">Thomas Kou</h3>
+            <h3 className="font-title text-uppercase bg-color-white mr-5 py-1 px-2">Thomas Kou</h3>
 
             <Row className="font-decorative text-lowercase">
                 {values(navLinks).map((item: INavbarLink, index: number): JSX.Element => (
                     <Col key={"navbar-link-" + index}>
-                        <Link to={item.route} className="bg-color-white">{item.text}</Link>
+                        <Link to={item.route} className="text-white boxed-white bg-color-black py-1 px-2">{item.text}</Link>
                     </Col>
                 ))}
             </Row>

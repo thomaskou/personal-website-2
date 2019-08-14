@@ -1,5 +1,5 @@
 import React from "react";
-// import Snake from "../../components/Snake/Snake";
+import Snake from "../../components/Snake/Snake";
 // import { Container } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const Homepage: React.FC<IProps> = (props: IProps): JSX.Element => {
                 </div>
             </Container> */}
 
-            {/* <Snake/> */}
+            <Snake/>
         </main>
     );
 };

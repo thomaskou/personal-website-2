@@ -1,30 +1,33 @@
 import { IAction } from "..";
 import { snakeActionType } from "./SnakeReducer";
-import { ICoords } from "./InitialSnakeStore";
+import { ISnakeScore } from "./InitialSnakeStore";
 
-export type ISnakeStartPayload = {
-    width: number,
-    height: number,
-    startPos: ICoords,
-};
-
-export enum snakeDir {
-    UP = "UP",
-    DOWN = "DOWN",
-    LEFT = "LEFT",
-    RIGHT = "RIGHT",
-};
-
-export async function startGame(width: number, height: number, startPos: ICoords): Promise<IAction<snakeActionType, ISnakeStartPayload>> {
+export async function changeScore(score: number): Promise<IAction<snakeActionType, number>> {
     return {
-        type: snakeActionType.START_GAME,
-        payload: {width, height, startPos},
+        type: snakeActionType.CHANGE_SCORE,
+        payload: score,
     };
 }
 
-export async function moveSnake(dir: snakeDir): Promise<IAction<snakeActionType, snakeDir>> {
+export async function getScores(): Promise<IAction<snakeActionType, ISnakeScore[]>> {
+
+    const scores: ISnakeScore[] = [
+        {name: "AAA", score: 100},
+        {name: "BBB", score: 200},
+        {name: "CCC", score: 300},
+        {name: "DDD", score: 400},
+        {name: "EEE", score: 500},
+        {name: "FFF", score: 600},
+    ]
+
     return {
-        type: snakeActionType.MOVE,
-        payload: dir,
+        type: snakeActionType.GET_SCORES,
+        payload: scores,
+    };
+}
+
+export async function submitScore(): Promise<IAction<snakeActionType, void>> {
+    return {
+        type: snakeActionType.SUBMIT_SCORE,
     };
 }

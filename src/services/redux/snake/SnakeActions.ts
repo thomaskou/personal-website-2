@@ -18,7 +18,7 @@ export async function getScores(): Promise<IAction<snakeActionType, ISnakeScore[
         {name: "DDD", score: 400},
         {name: "EEE", score: 500},
         {name: "FFF", score: 600},
-    ]
+    ];
 
     return {
         type: snakeActionType.GET_SCORES,

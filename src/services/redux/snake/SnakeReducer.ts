@@ -18,12 +18,15 @@ export default function(store: ISnakeStore = InitialSnakeStore, action: IAction<
 
         case snakeActionType.CHANGE_SCORE:
             newStore.score = action.payload as number;
+            break;
 
         case snakeActionType.GET_SCORES:
             newStore.allScores = action.payload as ISnakeScore[];
+            break;
 
         case snakeActionType.SUBMIT_SCORE:
             console.log("Submit score:", newStore.score);
+            break;
             
     }
 

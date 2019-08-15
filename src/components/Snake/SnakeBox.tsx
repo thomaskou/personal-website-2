@@ -1,5 +1,6 @@
 import React, { RefObject } from "react";
 import { ReactNode } from "react";
+import { Swipeable } from "react-swipeable";
 import cloneDeep from "lodash/cloneDeep";
 import { connect } from "react-redux";
 import { IStore } from "../../services/redux/defaultStore";
@@ -220,36 +221,54 @@ class SnakeBox extends React.Component<IProps, IState> {
         this.setGrid(index, coords, on);
     };
 
-    private pressKey = (event: any): void => {
+    private changeDir = (dir: SnakeDirections): void => {
         const currentDir = this.game.snakeDir;
         const changingDir = this.game.changingDir;
 
         if (!changingDir && currentDir) {
             this.game.changingDir = true;
-            switch (event.key) {
-                case "ArrowUp":
+            switch (dir) {
+                case SnakeDirections.UP:
                     if (currentDir !== SnakeDirections.DOWN) {
-                        this.game = ({...this.game, snakeDir: SnakeDirections.UP});
+                        this.game.snakeDir = dir;
                     }
                     break;
-                case "ArrowDown":
+                case SnakeDirections.DOWN:
                     if (currentDir !== SnakeDirections.UP) {
-                        this.game = ({...this.game, snakeDir: SnakeDirections.DOWN});
+                        this.game.snakeDir = dir;
                     }
                     break;
-                case "ArrowLeft":
+                case SnakeDirections.LEFT:
                     if (currentDir !== SnakeDirections.RIGHT) {
-                        this.game = ({...this.game, snakeDir: SnakeDirections.LEFT});
+                        this.game.snakeDir = dir;
                     }
                     break;
-                case "ArrowRight":
+                case SnakeDirections.RIGHT:
                     if (currentDir !== SnakeDirections.LEFT) {
-                        this.game = ({...this.game, snakeDir: SnakeDirections.RIGHT});
+                        this.game.snakeDir = dir;
                     }
                     break;
             }
         }
+    }
+
+    private pressKey = (event: any): void => {
+        switch (event.key) {
+            case "ArrowUp":     this.changeDir(SnakeDirections.UP);     break;
+            case "ArrowDown":   this.changeDir(SnakeDirections.DOWN);   break;
+            case "ArrowLeft":   this.changeDir(SnakeDirections.LEFT);   break;
+            case "ArrowRight":  this.changeDir(SnakeDirections.RIGHT);  break;
+        }
     };
+
+    private onSwiped = (event: any): void => {
+        switch (event.dir) {
+            case "Up":      this.changeDir(SnakeDirections.UP);     break;
+            case "Down":    this.changeDir(SnakeDirections.DOWN);   break;
+            case "Left":    this.changeDir(SnakeDirections.LEFT);   break;
+            case "Right":   this.changeDir(SnakeDirections.RIGHT);  break;
+        }
+    }
 
     private moveSnake = (): void => {
         const {dispatch, snakeStore} = this.props;
@@ -345,12 +364,10 @@ class SnakeBox extends React.Component<IProps, IState> {
         const ele = this.createSnakeBox();
 
         return (
-            <div
-                className="w-100 h-100"
-                ref={this.containerRef}
-            >
-                {ele}
-            </div>
+            <React.Fragment>
+                <div className="w-100 h-100" ref={this.containerRef}>{ele}</div>
+                <Swipeable onSwiped={this.onSwiped} preventDefaultTouchmoveEvent={true} className="snake-swipeable"/>
+            </React.Fragment>
         );
     }
 

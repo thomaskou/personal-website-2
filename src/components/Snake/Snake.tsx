@@ -34,7 +34,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
     const [gameActive, changeGameActive] = useState(false);
 
     const [snakeNode, changeSnakeNode] = useState(<React.Fragment/>);
-    const [scoreNode, changeScoreNode] = useState(<React.Fragment/>);
+    const [enterScoreNode, changeEnterScoreNode] = useState(<React.Fragment/>);
 
     /**
      * ****************************************************************************************************
@@ -53,7 +53,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
             ? <SnakeBox endGameCallback={endGame}/>
             : <React.Fragment/>
         );
-    }, [gameVisible, gameActive, endGame]);
+    }, [gameActive, endGame]);
 
     async function openGame(): Promise<void> {
         if (!gameVisible) {
@@ -76,14 +76,14 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
             changeEnterScore(false);
             changeGameActive(false);
         }
-    }, []);
+    }, [gameVisible, gameActive, enterScore]);
 
     useEffect(() => {
-        changeScoreNode(enterScore
+        changeEnterScoreNode(enterScore
             ? <React.Fragment/>
             : <React.Fragment/>
         );
-    }, [])
+    }, [enterScore, scoreSubmitted])
 
     /**
      * ****************************************************************************************************
@@ -125,10 +125,10 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
 
             <div className="snake-container" style={opacityStyle} onClick={startGame}>
                 <Container className="d-flex" style={{...offsetTransitionStyle, flex: 1}}>
-                    <div className="snake-canvas my-5" style={{flex: 1}}>
+                    <div className="snake-canvas mt-2 mb-4 my-md-5" style={{flex: 1}}>
                         {snakeScore}
                         {snakeNode}
-                        {scoreNode}
+                        {enterScoreNode}
                     </div>
                 </Container>
             </div>

@@ -19,13 +19,12 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
     function createBoxListItem(index: number): (boxItem: string, boxIndex: number) => ReactNode {
         return (boxItem: string, boxIndex: number): ReactNode => {
             return <React.Fragment key={`${keyPrefix}-${index}-box-${boxIndex}`}>
-
-                {boxIndex > 0 && <span className="mx-1"/>}
-
-                <span className="text-muted font-size-065 font-size-sm-075 boxed-black p-1 my-1">
+                <span className={
+                    "text-muted font-size-065 font-size-sm-075 " +
+                    "boxed-black p-1 m-1 "
+                }>
                     {boxItem}
                 </span>
-                
             </React.Fragment>;
         };
     }
@@ -56,7 +55,10 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
             {grayText && <p className="text-uppercase text-muted text-nowrap font-size-09">{grayText}</p>}
 
             {boxList && boxList.length > 0 &&
-                <div className="my-2 aligned-row flex-wrap">
+                <div
+                    className="my-2 aligned-row flex-wrap"
+                    style={{marginLeft: "-0.25rem", marginRight: "-0.25rem"}}
+                >
                     {boxList.map(createBoxListItem(index))}
                 </div>
             }

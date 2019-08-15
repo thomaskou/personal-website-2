@@ -1,10 +1,10 @@
-import React, { useState, CSSProperties, useEffect, ReactNode, useCallback } from "react";
+import React, {useState, CSSProperties, useEffect, ReactNode, useCallback, RefObject} from "react";
 import "./Snake.scss";
-import { Container } from "react-bootstrap";
+import {Container, Modal} from "react-bootstrap";
 import { connect } from "react-redux";
 import { ISnakeStore } from "../../services/redux/snake/InitialSnakeStore";
 import { IStore } from "../../services/redux/defaultStore";
-import { getScores, changeScore } from "../../services/redux/snake/SnakeActions";
+import {getScores, changeScore, submitScore} from "../../services/redux/snake/SnakeActions";
 import SnakeBox from "./SnakeBox";
 
 /**
@@ -22,7 +22,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     /**
      * ****************************************************************************************************
-     * Props & state
+     * Props, state, instance variables
      * ****************************************************************************************************
      */
 
@@ -34,7 +34,10 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
     const [gameActive, changeGameActive] = useState(false);
 
     const [snakeNode, changeSnakeNode] = useState(<React.Fragment/>);
-    const [enterScoreNode, changeEnterScoreNode] = useState(<React.Fragment/>);
+
+    const scoreInputRef: RefObject<HTMLInputElement> = React.createRef<HTMLInputElement>();
+    const [scoreSubmitTouched, changeScoreSubmitTouched] = useState(false);
+    const [scoreSubmitError, changeScoreSubmitError] = useState("Enter between 1 and 3 characters.");
 
     /**
      * ****************************************************************************************************
@@ -44,6 +47,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     const endGame = useCallback((): void => {
         if (gameVisible && gameActive && !enterScore) {
+            console.log("Use callback");
             changeEnterScore(true);
         }
     }, [gameVisible, gameActive, enterScore]);
@@ -65,25 +69,59 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         }
     }
 
-    function startGame(): void {
+    async function startGame(): Promise<void> {
         if (gameVisible && !gameActive && gamePlayable) {
+            await dispatch(changeScore(0));
             changeGameActive(true);
         }
     }
 
-    const scoreSubmitted = useCallback((): void => {
+    function endScoreSubmit(): void {
         if (gameVisible && gameActive && enterScore) {
-            changeEnterScore(false);
             changeGameActive(false);
+            changeEnterScore(false);
         }
-    }, [gameVisible, gameActive, enterScore]);
+    }
 
-    useEffect(() => {
-        changeEnterScoreNode(enterScore
-            ? <React.Fragment/>
-            : <React.Fragment/>
-        );
-    }, [enterScore, scoreSubmitted])
+    /**
+     * ****************************************************************************************************
+     * Score input functions
+     * ****************************************************************************************************
+     */
+
+    function scoreInputChange(): void {
+        if (scoreInputRef && scoreInputRef.current) {
+            const val: string = scoreInputRef.current.value;
+            switch (val.toUpperCase()) {
+
+                case "":
+                    changeScoreSubmitError("Enter between 1 and 3 characters.");
+                    break;
+
+                case "FUK":
+                case "FCK":
+                case "FUC":
+                case "NIG":
+                case "NGR":
+                case "NGA":
+                    changeScoreSubmitError("Invalid name.");
+                    break;
+
+                default:
+                    changeScoreSubmitError("");
+                    break;
+
+            }
+        }
+    }
+
+    async function scoreSubmitClick(): Promise<void> {
+        changeScoreSubmitTouched(true);
+        if (scoreSubmitError === "" && scoreInputRef && scoreInputRef.current) {
+            await dispatch(submitScore(scoreInputRef.current.value));
+            endScoreSubmit();
+        }
+    }
 
     /**
      * ****************************************************************************************************
@@ -112,6 +150,16 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         "py-2 px-2 px-sm-0 " +
         "font-size-075 font-size-sm-09 font-size-md-1 ";
 
+    const scoreInputClasses: string =
+        "snake-enter-score-input " +
+        "font-primary text-white text-uppercase " +
+        "width-10em p-2 px-3 ";
+
+    const scoreButtonClasses: string =
+        "btn button-link " +
+        "font-primary text-white " +
+        "p-1 px-2 mr-2 ";
+
     const snakeScore: ReactNode = (
         <div className="font-primary text-white font-size-15 snake-score m-3 px-2">
             {snakeStore && snakeStore.score}
@@ -121,8 +169,8 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
     const scoreDisplay: ReactNode = (
         <div className={scoreDisplayClasses}>
             <div className={scoreDisplayInnerClasses}>
-                {snakeStore && snakeStore.allScores.slice(0, 10).map(s => (
-                    <p className="mx-2 mx-sm-3">
+                {snakeStore && snakeStore.allScores.slice(0, 10).map((s, index) => (
+                    <p key={"snake-score-" + index} className="mx-2 mx-sm-3">
                         <span style={{color: "#a0a0a0"}}>{s.name}:</span> <span>{s.score}</span>
                     </p>
                 ))}
@@ -130,8 +178,24 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         </div>
     );
 
+    const enterScoreNode: ReactNode = (
+        <Modal show={enterScore} onHide={endScoreSubmit} className="snake-enter-score p-3" id="enter-score-modal" centered>
+            <Modal.Body>
+                <div className="spaced-row">
+                    <input className={scoreInputClasses} maxLength={3} placeholder="AAA" ref={scoreInputRef} onChange={scoreInputChange}/>
+                    <button className={scoreButtonClasses} onClick={scoreSubmitClick}>OK</button>
+                </div>
+                {scoreSubmitTouched && scoreSubmitError !== "" &&
+                    <p className="font-primary text-danger font-size-09 px-3 py-2">{scoreSubmitError}</p>
+                }
+            </Modal.Body>
+        </Modal>
+    );
+
     return (
         <React.Fragment>
+
+            {enterScoreNode}
                 
             <div
                 className="snake-button centered p-3"
@@ -154,7 +218,6 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
                     </div>
 
                     {scoreDisplay}
-                    {enterScoreNode}
 
                 </Container>
             </div>

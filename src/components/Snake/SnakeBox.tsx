@@ -336,7 +336,7 @@ class SnakeBox extends React.Component<IProps, IState> {
     private endGame = (): void => {
         this.playing = false;
         this.setState({loss: true});
-        setTimeout(this.props.endGameCallback, 500);
+        setTimeout(this.props.endGameCallback, 200);
     };
 
     /**

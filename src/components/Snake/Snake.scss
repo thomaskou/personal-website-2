@@ -118,3 +118,27 @@
     height: 100%;
     z-index: 999;
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Enter score
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.snake-enter-score {
+
+    .modal-content {
+        border: 1px solid white;
+        border-radius: 2px;
+        background-color: rgba(0,0,0,0.5);
+    }
+    .modal-body {
+        border-radius: 2px;
+    }
+
+}
+
+.snake-enter-score-input {
+    background-color: transparent;
+    border: none;
+    letter-spacing: 0.5rem;
+}

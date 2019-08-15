@@ -26,7 +26,7 @@ const experience: IExperienceList = {
         date: "April 2019 -> August 2019",
         location: "Vancouver, BC",
         description: ["Full-stack web/mobile software developer."],
-        technologies: ["TypeScript", "Node.js", "React (Native)", "Redux", "iOS/Android", "Sass", "Bootstrap", "LambdaTest", "CircleCI", "REST", "SOAP"],
+        technologies: ["TypeScript", "Node.js", "React (Native)", "Redux", "iOS/Android", "Sass", "Bootstrap", "Next.js", "LambdaTest", "CircleCI", "REST", "SOAP"],
     },
     sfu: {
         company: "Simon Fraser University CODE",

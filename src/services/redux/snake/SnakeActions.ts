@@ -12,12 +12,14 @@ export async function changeScore(score: number): Promise<IAction<snakeActionTyp
 export async function getScores(): Promise<IAction<snakeActionType, ISnakeScore[]>> {
 
     const scores: ISnakeScore[] = [
-        {name: "AAA", score: 100},
-        {name: "BBB", score: 200},
-        {name: "CCC", score: 300},
-        {name: "DDD", score: 400},
-        {name: "EEE", score: 500},
-        {name: "FFF", score: 600},
+        {name: "AAA", score: 12000},
+        {name: "BBB", score: 5100},
+        {name: "CCC", score: 9000},
+        {name: "DDD", score: 80000},
+        {name: "EEE", score: 69000},
+        {name: "FFF", score: 4200},
+        {name: "GGG", score: 42000},
+        {name: "HHH", score: 1000},
     ];
 
     return {

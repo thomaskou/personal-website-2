@@ -102,9 +102,31 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         marginBottom: gameVisible ? 0 : -35,
     };
 
+    const scoreDisplayClasses: string =
+        "snake-score-display " +
+        "font-primary text-white " +
+        "mt-2 mt-md-4 ml-lg-4 my-lg-5 ";
+    
+    const scoreDisplayInnerClasses: string =
+        "snake-score-display-inner " +
+        "py-2 px-2 px-sm-0 " +
+        "font-size-075 font-size-sm-09 font-size-md-1 ";
+
     const snakeScore: ReactNode = (
         <div className="font-primary text-white font-size-15 snake-score m-3 px-2">
             {snakeStore && snakeStore.score}
+        </div>
+    );
+
+    const scoreDisplay: ReactNode = (
+        <div className={scoreDisplayClasses}>
+            <div className={scoreDisplayInnerClasses}>
+                {snakeStore && snakeStore.allScores.slice(0, 10).map(s => (
+                    <p className="mx-2 mx-sm-3">
+                        <span style={{color: "#a0a0a0"}}>{s.name}:</span> <span>{s.score}</span>
+                    </p>
+                ))}
+            </div>
         </div>
     );
 
@@ -124,12 +146,16 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
             />
 
             <div className="snake-container" style={opacityStyle} onClick={startGame}>
-                <Container className="d-flex" style={{...offsetTransitionStyle, flex: 1}}>
-                    <div className="snake-canvas mt-2 mb-4 my-md-5" style={{flex: 1}}>
+                <Container className="snake-container-inner" style={{...offsetTransitionStyle, flex: 1}}>
+
+                    <div className="snake-canvas mt-2 mb-4 mt-md-3 mb-md-5 mt-lg-5" style={{flex: 1}}>
                         {snakeScore}
                         {snakeNode}
-                        {enterScoreNode}
                     </div>
+
+                    {scoreDisplay}
+                    {enterScoreNode}
+
                 </Container>
             </div>
 

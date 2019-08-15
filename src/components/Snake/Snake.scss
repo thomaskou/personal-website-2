@@ -1,3 +1,6 @@
+@import "../../styles/_variables.scss";
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // Homepage
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -20,6 +23,16 @@
     overflow: hidden;
 }
 
+.snake-container-inner {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    @media only screen and (max-width: $break-md-max) {
+        flex-direction: column-reverse;
+    }
+}
+
 .snake-background {
     position: absolute;
     width: 100%;
@@ -31,13 +44,14 @@
 
 .snake-canvas {
     position: relative;
+    width: 100%;
     border: 1px solid white;
     border-radius: 2px;
 }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// Score
+// Scores
 //////////////////////////////////////////////////////////////////////////////////////////
 
 .snake-score {
@@ -47,6 +61,31 @@
     border-radius: 5px;
     top: 0;
     left: 0;
+}
+
+.snake-score-display {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 999;
+
+    @media only screen and (max-width: $break-xxxl-max) {
+        position: inherit;
+        left: 0;
+    }
+}
+
+.snake-score-display-inner {
+    border: 1px solid white;
+    border-radius: 2px;
+    white-space: nowrap;
+
+    @media only screen and (max-width: $break-md-max) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }
 
 

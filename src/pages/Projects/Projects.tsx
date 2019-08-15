@@ -29,7 +29,7 @@ const projects: IProjectList = {
     website: {
         title: "Personal Website v2",
         date: "August 2019",
-        technologies: ["TypeScript", "Node.js", "React", "Sass", "Bootstrap"],
+        technologies: ["TypeScript", "Node.js", "React", "Redux", "Sass", "Bootstrap"],
         description: ["A really cool website."],
     },
     audioLights: {

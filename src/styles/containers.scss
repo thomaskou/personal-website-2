@@ -2,7 +2,7 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// Custom sizing
+// Custom height sizing
 //////////////////////////////////////////////////////////////////////////////////////////
 
 .height-10em, .height-xs-10em { height: 10em; }
@@ -40,6 +40,47 @@
 .height-md-25em { @media only screen and (min-width: $break-md-min) { height: 25em; } }
 .height-lg-25em { @media only screen and (min-width: $break-lg-min) { height: 25em; } }
 .height-xl-25em { @media only screen and (min-width: $break-xl-min) { height: 25em; } }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Custom width sizing
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.width-10em, .width-xs-10em { width: 10em; }
+.width-sm-10em { @media only screen and (min-width: $break-sm-min) { width: 10em; } }
+.width-md-10em { @media only screen and (min-width: $break-md-min) { width: 10em; } }
+.width-lg-10em { @media only screen and (min-width: $break-lg-min) { width: 10em; } }
+.width-xl-10em { @media only screen and (min-width: $break-xl-min) { width: 10em; } }
+
+.width-12-5em, .width-xs-12-5em { width: 12.5em; }
+.width-sm-12-5em { @media only screen and (min-width: $break-sm-min) { width: 12.5em; } }
+.width-md-12-5em { @media only screen and (min-width: $break-md-min) { width: 12.5em; } }
+.width-lg-12-5em { @media only screen and (min-width: $break-lg-min) { width: 12.5em; } }
+.width-xl-12-5em { @media only screen and (min-width: $break-xl-min) { width: 12.5em; } }
+
+.width-15em, .width-xs-15em { width: 15em; }
+.width-sm-15em { @media only screen and (min-width: $break-sm-min) { width: 15em; } }
+.width-md-15em { @media only screen and (min-width: $break-md-min) { width: 15em; } }
+.width-lg-15em { @media only screen and (min-width: $break-lg-min) { width: 15em; } }
+.width-xl-15em { @media only screen and (min-width: $break-xl-min) { width: 15em; } }
+
+.width-17-5em, .width-xs-17-5em { width: 17.5em; }
+.width-sm-17-5em { @media only screen and (min-width: $break-sm-min) { width: 17.5em; } }
+.width-md-17-5em { @media only screen and (min-width: $break-md-min) { width: 17.5em; } }
+.width-lg-17-5em { @media only screen and (min-width: $break-lg-min) { width: 17.5em; } }
+.width-xl-17-5em { @media only screen and (min-width: $break-xl-min) { width: 17.5em; } }
+
+.width-20em, .width-xs-20em { width: 20em; }
+.width-sm-20em { @media only screen and (min-width: $break-sm-min) { width: 20em; } }
+.width-md-20em { @media only screen and (min-width: $break-md-min) { width: 20em; } }
+.width-lg-20em { @media only screen and (min-width: $break-lg-min) { width: 20em; } }
+.width-xl-20em { @media only screen and (min-width: $break-xl-min) { width: 20em; } }
+
+.width-25em, .width-xs-25em { width: 25em; }
+.width-sm-25em { @media only screen and (min-width: $break-sm-min) { width: 25em; } }
+.width-md-25em { @media only screen and (min-width: $break-md-min) { width: 25em; } }
+.width-lg-25em { @media only screen and (min-width: $break-lg-min) { width: 25em; } }
+.width-xl-25em { @media only screen and (min-width: $break-xl-min) { width: 25em; } }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

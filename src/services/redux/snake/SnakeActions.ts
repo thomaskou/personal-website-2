@@ -28,9 +28,9 @@ export async function getScores(): Promise<IAction<snakeActionType, ISnakeScore[
     };
 }
 
-export async function submitScore(name: string): Promise<IAction<snakeActionType, string>> {
+export async function submitScore(name: string): Promise<IAction<snakeActionType, void>> {
+
     return {
         type: snakeActionType.SUBMIT_SCORE,
-        payload: name,
     };
 }

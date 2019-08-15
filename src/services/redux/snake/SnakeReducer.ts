@@ -8,7 +8,7 @@ export enum snakeActionType {
     SUBMIT_SCORE = "SUBMIT_SCORE",
 }
 
-type snakePayloadType = number | ISnakeScore[] | string | void;
+type snakePayloadType = number | ISnakeScore[] | void;
 
 export default function(store: ISnakeStore = InitialSnakeStore, action: IAction<snakeActionType, snakePayloadType>): ISnakeStore {
 
@@ -25,7 +25,6 @@ export default function(store: ISnakeStore = InitialSnakeStore, action: IAction<
             break;
 
         case snakeActionType.SUBMIT_SCORE:
-            console.log("Submit score:", newStore.score, action.payload as string);
             break;
             
     }

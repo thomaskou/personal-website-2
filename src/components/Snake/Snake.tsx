@@ -34,6 +34,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
     const [gameActive, changeGameActive] = useState(false);
 
     const [snakeNode, changeSnakeNode] = useState(<React.Fragment/>);
+    const [scoreNode, changeScoreNode] = useState(<React.Fragment/>);
 
     /**
      * ****************************************************************************************************
@@ -69,6 +70,20 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
             changeGameActive(true);
         }
     }
+
+    const scoreSubmitted = useCallback((): void => {
+        if (gameVisible && gameActive && enterScore) {
+            changeEnterScore(false);
+            changeGameActive(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        changeScoreNode(enterScore
+            ? <React.Fragment/>
+            : <React.Fragment/>
+        );
+    }, [])
 
     /**
      * ****************************************************************************************************
@@ -113,6 +128,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
                     <div className="snake-canvas my-5" style={{flex: 1}}>
                         {snakeScore}
                         {snakeNode}
+                        {scoreNode}
                     </div>
                 </Container>
             </div>

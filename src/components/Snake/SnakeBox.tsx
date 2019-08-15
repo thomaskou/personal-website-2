@@ -1,6 +1,10 @@
 import React, { RefObject } from "react";
 import { ReactNode } from "react";
 import cloneDeep from "lodash/cloneDeep";
+import { connect } from "react-redux";
+import { IStore } from "../../services/redux/defaultStore";
+import { ISnakeStore } from "../../services/redux/snake/InitialSnakeStore";
+import { changeScore } from "../../services/redux/snake/SnakeActions";
 
 /**
  * ****************************************************************************************************
@@ -21,11 +25,14 @@ enum SnakeDirections {
 }
 
 interface IProps {
+    dispatch?: any;
+    snakeStore?: ISnakeStore;
     endGameCallback: () => void;
 }
 
 interface IState {
     grid: ReactNode[][];
+    loss: boolean;
 }
 
 interface IGame {
@@ -35,6 +42,7 @@ interface IGame {
     snakeLength?: number;
     snake?: ICoords[];
     snakeDir?: SnakeDirections;
+    changingDir?: boolean;
 
     occupied: boolean[];
     unoccupiedIndices?: number[];
@@ -69,7 +77,7 @@ function recreateUnoccupiedIndices(occupied: boolean[]): number[] {
     return unoccupiedIndices;
 }
 
-function createNewGrid(occupied: boolean[], w: number, h: number): ReactNode[][] {
+function createNewGrid(occupied: boolean[], w: number, h: number, color: string = "white"): ReactNode[][] {
     const grid: ReactNode[][] = new Array(h);
     let g: number;
     for (g = 0; g < w; g++) {
@@ -83,7 +91,7 @@ function createNewGrid(occupied: boolean[], w: number, h: number): ReactNode[][]
             <div
                 key={"snake-tile-" + i}
                 className="snake-box-tile"
-                style={{backgroundColor: occupied[i] ? "white" : "transparent"}}
+                style={{backgroundColor: occupied[i] ? color : "transparent"}}
             />
         );
     }
@@ -105,7 +113,7 @@ class SnakeBox extends React.Component<IProps, IState> {
      * ****************************************************************************************************
      */
 
-    private static defaultProps: IProps = {
+    public static defaultProps: IProps = {
         endGameCallback: () => {},
     };
 
@@ -118,6 +126,7 @@ class SnakeBox extends React.Component<IProps, IState> {
         super(props);
         this.state = {
             grid: createNewGrid([false], 1, 1),
+            loss: false,
         };
         this.game = {
             w: 1,
@@ -173,12 +182,12 @@ class SnakeBox extends React.Component<IProps, IState> {
             snakeLength, snake, snakeDir,
             occupied, unoccupiedIndices, dot,
         };
-        this.setState({grid}, this.startGame);
+        this.setState({grid, loss: false}, this.startGame);
     };
 
     private startGame = (): void => {
         this.playing = true;
-        setTimeout(this.tickGame, 50);
+        setTimeout(this.tickGame, 30);
     };
 
     private setGrid = (index: number, coords: ICoords, on: boolean): void => {
@@ -213,8 +222,10 @@ class SnakeBox extends React.Component<IProps, IState> {
 
     private pressKey = (event: any): void => {
         const currentDir = this.game.snakeDir;
+        const changingDir = this.game.changingDir;
 
-        if (currentDir) {
+        if (!changingDir && currentDir) {
+            this.game.changingDir = true;
             switch (event.key) {
                 case "ArrowUp":
                     if (currentDir !== SnakeDirections.DOWN) {
@@ -241,10 +252,11 @@ class SnakeBox extends React.Component<IProps, IState> {
     };
 
     private moveSnake = (): void => {
+        const {dispatch, snakeStore} = this.props;
         const {w, h, snake, snakeDir, occupied, unoccupiedIndices} = this.game;
         let {snakeLength, dot} = this.game;
 
-        if (snakeLength && snake && snakeDir && unoccupiedIndices && dot) {
+        if (snakeStore && snakeLength && snake && snakeDir && unoccupiedIndices && dot) {
 
             let collectedDot: boolean = false;
 
@@ -264,6 +276,7 @@ class SnakeBox extends React.Component<IProps, IState> {
                 dot = randomUnoccupied(unoccupiedIndices, w, h);
                 collectedDot = true;
                 this.setGridCoords(dot, true);
+                dispatch(changeScore(snakeStore.score + 100));
             }
 
             // Check wall collision
@@ -289,13 +302,13 @@ class SnakeBox extends React.Component<IProps, IState> {
             }
 
         }
-        this.game = {...this.game, snakeLength, dot};
+        this.game = {...this.game, snakeLength, dot, changingDir: false};
     };
 
     private tickGame = (): void => {
         if (this.playing) {
             this.moveSnake();
-            setTimeout(this.tickGame, 50);
+            setTimeout(this.tickGame, 30);
         } else {
             this.endGame();
         }
@@ -303,7 +316,8 @@ class SnakeBox extends React.Component<IProps, IState> {
 
     private endGame = (): void => {
         this.playing = false;
-        // TODO: end game
+        this.setState({loss: true});
+        setTimeout(this.props.endGameCallback, 500);
     };
 
     /**
@@ -313,10 +327,11 @@ class SnakeBox extends React.Component<IProps, IState> {
      */
 
     private createSnakeBox = (): ReactNode => {
-        const {grid} = this.state;
+        const {grid, loss} = this.state;
+        const lossFilter = loss ? {filter: "brightness(0.5) sepia(1) hue-rotate(-50deg) saturate(10)"} : {};
 
         return (
-            <div className="snake-box" style={{color: "white"}}>
+            <div className="snake-box" style={lossFilter}>
                 {grid.map((col, j) => (
                     <div key={"snake-col-" + j} className="snake-box-col">
                         {col}
@@ -341,4 +356,7 @@ class SnakeBox extends React.Component<IProps, IState> {
 
 }
 
-export default SnakeBox;
+export default connect((store: IStore, props: IProps) => ({
+    snakeStore: store.snakeStore,
+    ...props,
+}))(SnakeBox);

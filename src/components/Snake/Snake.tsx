@@ -1,10 +1,10 @@
-import React, { useState, CSSProperties, useEffect, useCallback } from "react";
+import React, { useState, CSSProperties, useEffect, ReactNode, useCallback } from "react";
 import "./Snake.scss";
 import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { ISnakeStore } from "../../services/redux/snake/InitialSnakeStore";
 import { IStore } from "../../services/redux/defaultStore";
-import { getScores } from "../../services/redux/snake/SnakeActions";
+import { getScores, changeScore } from "../../services/redux/snake/SnakeActions";
 import SnakeBox from "./SnakeBox";
 
 /**
@@ -26,10 +26,11 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
      * ****************************************************************************************************
      */
 
-    const {dispatch} = props;
+    const {dispatch, snakeStore} = props;
 
     const [gameVisible, changeGameVisible] = useState(false);
     const [gamePlayable, changeGamePlayable] = useState(false);
+    const [enterScore, changeEnterScore] = useState(false);
     const [gameActive, changeGameActive] = useState(false);
 
     const [snakeNode, changeSnakeNode] = useState(<React.Fragment/>);
@@ -40,22 +41,22 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
      * ****************************************************************************************************
      */
 
-    const endGame = useCallback(() => {
-        if (gameVisible && gameActive) {
-            changeGameActive(false);
-            // TODO: Name form, submit score
+    const endGame = useCallback((): void => {
+        if (gameVisible && gameActive && !enterScore) {
+            changeEnterScore(true);
         }
-    }, [gameVisible, gameActive]);
+    }, [gameVisible, gameActive, enterScore]);
 
     useEffect(() => {
         changeSnakeNode(gameActive
             ? <SnakeBox endGameCallback={endGame}/>
             : <React.Fragment/>
         );
-    }, [gameActive, endGame]);
+    }, [gameVisible, gameActive, endGame]);
 
     async function openGame(): Promise<void> {
         if (!gameVisible) {
+            await dispatch(changeScore(0));
             await dispatch(getScores()).then(() => {
                 changeGameVisible(true);
                 setTimeout(() => {changeGamePlayable(true)}, 500);
@@ -63,10 +64,9 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         }
     }
 
-    async function startGame(): Promise<void> {
+    function startGame(): void {
         if (gameVisible && !gameActive && gamePlayable) {
             changeGameActive(true);
-            console.log("Game started!");
         }
     }
 
@@ -87,6 +87,12 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         marginBottom: gameVisible ? 0 : -35,
     };
 
+    const snakeScore: ReactNode = (
+        <div className="font-primary text-white font-size-15 snake-score m-3 px-2">
+            {snakeStore && snakeStore.score}
+        </div>
+    );
+
     return (
         <React.Fragment>
                 
@@ -105,6 +111,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
             <div className="snake-container" style={opacityStyle} onClick={startGame}>
                 <Container className="d-flex" style={{...offsetTransitionStyle, flex: 1}}>
                     <div className="snake-canvas my-5" style={{flex: 1}}>
+                        {snakeScore}
                         {snakeNode}
                     </div>
                 </Container>

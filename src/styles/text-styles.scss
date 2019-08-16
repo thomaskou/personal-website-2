@@ -17,6 +17,15 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
+// Font colours
+//////////////////////////////////////////////////////////////////////////////////////////
+
+.text-black {
+    color: black;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 // Font weights
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -82,6 +91,12 @@
 .font-size-md-15 { @media only screen and (min-width: $break-md-min) { font-size: 1.5rem; } }
 .font-size-lg-15 { @media only screen and (min-width: $break-lg-min) { font-size: 1.5rem; } }
 .font-size-xl-15 { @media only screen and (min-width: $break-xl-min) { font-size: 1.5rem; } }
+
+.font-size-175, .font-size-xs-175 { font-size: 1.75rem; }
+.font-size-sm-175 { @media only screen and (min-width: $break-sm-min) { font-size: 1.75rem; } }
+.font-size-md-175 { @media only screen and (min-width: $break-md-min) { font-size: 1.75rem; } }
+.font-size-lg-175 { @media only screen and (min-width: $break-lg-min) { font-size: 1.75rem; } }
+.font-size-xl-175 { @media only screen and (min-width: $break-xl-min) { font-size: 1.75rem; } }
 
 .font-size-2, .font-size-xs-2 { font-size: 2rem; }
 .font-size-sm-2 { @media only screen and (min-width: $break-sm-min) { font-size: 2rem; } }

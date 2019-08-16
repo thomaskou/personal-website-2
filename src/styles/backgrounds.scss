@@ -41,6 +41,12 @@
     filter: grayscale(85%);
 }
 
+.background-river {
+    @extend .background-full;
+    background-image: url("/images/bg_river.jpg");
+    filter: grayscale(90%) brightness(75%) contrast(135%);
+}
+
 .background-keyboard {
     @extend .background-full;
     background-image: url("/images/bg_keyboard.png");

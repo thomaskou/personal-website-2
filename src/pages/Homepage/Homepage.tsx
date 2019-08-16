@@ -8,11 +8,8 @@ const Homepage: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     return (
         <main className="d-flex">
-
             <div className="background-rails"/>
-
             <Snake/>
-
         </main>
     );
 };

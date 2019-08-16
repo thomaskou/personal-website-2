@@ -21,7 +21,7 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
             return <React.Fragment key={`${keyPrefix}-${index}-box-${boxIndex}`}>
                 <span className={
                     "text-muted font-size-065 font-size-sm-075 " +
-                    "boxed-black px-1 py-05 py-sm-1 m-1 "
+                    "boxed-black px-1 py-05 m-1 "
                 }>
                     {boxItem}
                 </span>

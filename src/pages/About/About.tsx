@@ -24,7 +24,7 @@ const links: {[key: string]: ILink} = {
         link: "https://linkedin.com/in/thomaskou",
     },
     github: {
-        text: "Github",
+        text: "GitHub",
         link: "https://github.com/thomaskou",
     },
 };
@@ -63,6 +63,7 @@ const About: React.FC<IProps> = (props: IProps): JSX.Element => {
                             <a
                                 href={link.link}
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="bg-color-white text-black py-1 px-2"
                             >
                                 {link.text}

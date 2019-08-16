@@ -20,17 +20,12 @@ interface IProjectList {
 }
 
 const projects: IProjectList = {
-    gameboy: {
-        title: "kfGB",
-        date: "Coming soon",
-        technologies: ["Java"],
-        description: ["A low-level emulator for the Nintendo Gameboy."],
-    },
     website: {
         title: "React-Snake / Personal Website v2",
         date: "August 2019",
         technologies: ["TypeScript", "Node.js", "React", "Redux", "Firebase", "Sass", "Bootstrap", "REST"],
         description: ["A really cool website with an unnecessarily elaborate easter egg."],
+        thumbnail: "/images/project-thumbnails/personal-website-v2.jpg",
     },
     audioLights: {
         title: "Audio Lights",
@@ -39,18 +34,25 @@ const projects: IProjectList = {
         description: ["Visualizes microphone/music data live on an LED matrix."],
         thumbnail: "/images/project-thumbnails/led-bars.gif",
     },
-    markov: {
-        title: "Sentence Predictor",
-        date: "November 2018",
-        technologies: ["Java"],
-        description: ["Builds sentences using Markov chain information from file input."],
-    },
+    // markov: {
+    //     title: "Sentence Predictor",
+    //     date: "November 2018",
+    //     technologies: ["Java"],
+    //     description: ["Builds sentences using Markov chain information from file input."],
+    // },
     vgms: {
         title: "Instrumental Music Production",
         date: "Ongoing",
         technologies: ["FL Studio", "YouTube", "MAMPlayer"],
         description: ["Producing and uploading arrangements and visualizations of instrumental songs."],
         thumbnail: "/images/project-thumbnails/mamplayer.gif",
+    },
+    gameboy: {
+        title: "kfGB",
+        date: "Coming soon",
+        technologies: ["Java"],
+        description: ["A low-level emulator for the Nintendo Gameboy."],
+        thumbnail: "/images/project-thumbnails/wip.jpg",
     },
 };
 

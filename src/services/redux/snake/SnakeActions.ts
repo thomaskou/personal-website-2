@@ -1,6 +1,9 @@
 import { IAction } from "..";
 import { snakeActionType } from "./SnakeReducer";
 import { ISnakeScore } from "./InitialSnakeStore";
+import axios from "axios";
+import values from "lodash/values";
+import urls from "../../utils/urls";
 
 export async function changeScore(score: number): Promise<IAction<snakeActionType, number>> {
     return {
@@ -11,16 +14,16 @@ export async function changeScore(score: number): Promise<IAction<snakeActionTyp
 
 export async function getScores(): Promise<IAction<snakeActionType, ISnakeScore[]>> {
 
-    const scores: ISnakeScore[] = [
-        {name: "AAA", score: 12000},
-        {name: "BBB", score: 5100},
-        {name: "CCC", score: 9000},
-        {name: "DDD", score: 80000},
-        {name: "EEE", score: 69000},
-        {name: "FFF", score: 4200},
-        {name: "GGG", score: 42000},
-        {name: "HHH", score: 1000},
-    ];
+    let scores: ISnakeScore[];
+    try {
+        scores = values((await axios.get(urls.snakeScores)).data)
+            .sort((current, prev) => current.score - prev.score)
+            .reverse()
+            .slice(0, 8);
+    } catch (err) {
+        alert("An error occurred when getting scores: " + err.message);
+        scores = [];
+    }
 
     return {
         type: snakeActionType.GET_SCORES,
@@ -28,9 +31,9 @@ export async function getScores(): Promise<IAction<snakeActionType, ISnakeScore[
     };
 }
 
-export async function submitScore(name: string): Promise<IAction<snakeActionType, void>> {
-
+export async function submitScore(name: string): Promise<IAction<snakeActionType, string>> {
     return {
         type: snakeActionType.SUBMIT_SCORE,
+        payload: name,
     };
 }

@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "./services/redux";
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./pages/Homepage/Homepage";
 import Experience from "./pages/Experience/Experience";
 import Projects from "./pages/Projects/Projects";
+// import Test from "./pages/Test/Test";
 import NotFound from "./pages/NotFound/NotFound";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor } from "./services/redux";
 
 interface IProps {
 }
@@ -22,6 +23,7 @@ const App: React.FC<IProps> = (props: IProps): JSX.Element => {
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path="/experience" component={Experience}/>
                     <Route exact path="/projects" component={Projects}/>
+                    {/* <Route exact path="/test" component={Test}/> */}
                     <Route component={NotFound}/>
                 </Switch>
 

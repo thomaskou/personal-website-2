@@ -1,6 +1,8 @@
 import InitialSnakeStore, {ISnakeStore, ISnakeScore} from "./InitialSnakeStore";
 import {IAction} from "../index";
+import axios from "axios";
 import cloneDeep from "lodash/cloneDeep";
+import urls from "../../utils/urls";
 
 export enum snakeActionType {
     CHANGE_SCORE = "CHANGE_SCORE",
@@ -8,7 +10,7 @@ export enum snakeActionType {
     SUBMIT_SCORE = "SUBMIT_SCORE",
 }
 
-type snakePayloadType = number | ISnakeScore[] | void;
+type snakePayloadType = number | ISnakeScore[] | string | void;
 
 export default function(store: ISnakeStore = InitialSnakeStore, action: IAction<snakeActionType, snakePayloadType>): ISnakeStore {
 
@@ -25,6 +27,16 @@ export default function(store: ISnakeStore = InitialSnakeStore, action: IAction<
             break;
 
         case snakeActionType.SUBMIT_SCORE:
+            (async (): Promise<void> => {
+                try {
+                    await axios.post(urls.snakeScores, {
+                        name: action.payload as string,
+                        score: newStore.score,
+                    });
+                } catch (err) {
+                    alert("An error occurred when submitting your score: " + err.message);
+                }
+            })();
             break;
             
     }

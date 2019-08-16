@@ -27,10 +27,10 @@ const projects: IProjectList = {
         description: ["A low-level emulator for the Nintendo Gameboy."],
     },
     website: {
-        title: "Personal Website v2",
+        title: "React-Snake / Personal Website v2",
         date: "August 2019",
-        technologies: ["TypeScript", "Node.js", "React", "Redux", "Sass", "Bootstrap"],
-        description: ["A really cool website."],
+        technologies: ["TypeScript", "Node.js", "React", "Redux", "Firebase", "Sass", "Bootstrap", "REST"],
+        description: ["A really cool website with an unnecessarily elaborate easter egg."],
     },
     audioLights: {
         title: "Audio Lights",

@@ -47,7 +47,6 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     const endGame = useCallback((): void => {
         if (gameVisible && gameActive && !enterScore) {
-            console.log("Use callback");
             changeEnterScore(true);
         }
     }, [gameVisible, gameActive, enterScore]);
@@ -73,6 +72,8 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         if (gameVisible && !gameActive && gamePlayable) {
             await dispatch(changeScore(0));
             changeGameActive(true);
+            changeScoreSubmitError("Enter between 1 and 3 characters.");
+            changeScoreSubmitTouched(false);
         }
     }
 
@@ -98,12 +99,17 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
                     changeScoreSubmitError("Enter between 1 and 3 characters.");
                     break;
 
-                case "FUK":
+                case "ASS":
+                case "CUM":
+                case "FAG":
                 case "FCK":
                 case "FUC":
-                case "NIG":
-                case "NGR":
+                case "FUK":
+                case "GAY":
+                case "JEW":
                 case "NGA":
+                case "NGR":
+                case "NIG":
                     changeScoreSubmitError("Invalid name.");
                     break;
 
@@ -119,6 +125,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
         changeScoreSubmitTouched(true);
         if (scoreSubmitError === "" && scoreInputRef && scoreInputRef.current) {
             await dispatch(submitScore(scoreInputRef.current.value));
+            setTimeout(async () => {dispatch(getScores())}, 500);
             endScoreSubmit();
         }
     }
@@ -142,7 +149,7 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
 
     const scoreDisplayClasses: string =
         "snake-score-display " +
-        "font-primary text-white " +
+        "font-primary text-white text-uppercase " +
         "mt-2 mt-md-4 ml-lg-4 my-lg-5 ";
     
     const scoreDisplayInnerClasses: string =
@@ -169,11 +176,20 @@ const Snake: React.FC<IProps> = (props: IProps): JSX.Element => {
     const scoreDisplay: ReactNode = (
         <div className={scoreDisplayClasses}>
             <div className={scoreDisplayInnerClasses}>
-                {snakeStore && snakeStore.allScores.slice(0, 10).map((s, index) => (
-                    <p key={"snake-score-" + index} className="mx-2 mx-sm-3">
-                        <span style={{color: "#a0a0a0"}}>{s.name}:</span> <span>{s.score}</span>
-                    </p>
-                ))}
+                {snakeStore && (
+                    snakeStore.allScores.length > 0 ? (
+                        snakeStore.allScores.slice(0, 8).map((s, index) => (
+                            <p key={"snake-score-" + index} className="mx-2 mx-sm-3">
+                                <span style={{color: "#a0a0a0"}}>{s.name}:</span> <span>{s.score}</span>
+                            </p>
+                        ))
+                    ) : (
+                        <React.Fragment>
+                            <p className="mx-2 ml-sm-3 mr-lg-3" style={{color: "#a0a0a0"}}>No scores</p>
+                            <p className="ml-1 mr-2 mr-sm-3 ml-lg-3" style={{color: "#a0a0a0"}}>found.</p>
+                        </React.Fragment>
+                    )
+                )}
             </div>
         </div>
     );

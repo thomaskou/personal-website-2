@@ -87,11 +87,41 @@
 // Custom spacing
 //////////////////////////////////////////////////////////////////////////////////////////
 
+.p-05, .p-xs-05 { padding: $spacing-05 !important; }
+.p-sm-05 { @media only screen and (min-width: $break-sm-min) { padding: $spacing-05 !important; } }
+.p-md-05 { @media only screen and (min-width: $break-md-min) { padding: $spacing-05 !important; } }
+.p-lg-05 { @media only screen and (min-width: $break-lg-min) { padding: $spacing-05 !important; } }
+.p-xl-05 { @media only screen and (min-width: $break-xl-min) { padding: $spacing-05 !important; } }
+
+.px-05, .px-xs-05 { padding-left: $spacing-05 !important; padding-right: $spacing-05 !important; }
+.px-sm-05 { @media only screen and (min-width: $break-sm-min) { padding-left: $spacing-05 !important; padding-right: $spacing-05 !important; } }
+.px-md-05 { @media only screen and (min-width: $break-md-min) { padding-left: $spacing-05 !important; padding-right: $spacing-05 !important; } }
+.px-lg-05 { @media only screen and (min-width: $break-lg-min) { padding-left: $spacing-05 !important; padding-right: $spacing-05 !important; } }
+.px-xl-05 { @media only screen and (min-width: $break-xl-min) { padding-left: $spacing-05 !important; padding-right: $spacing-05 !important; } }
+
+.py-05, .py-xs-05 { padding-top: $spacing-05 !important; padding-bottom: $spacing-05 !important; }
+.py-sm-05 { @media only screen and (min-width: $break-sm-min) { padding-top: $spacing-05 !important; padding-bottom: $spacing-05 !important; } }
+.py-md-05 { @media only screen and (min-width: $break-md-min) { padding-top: $spacing-05 !important; padding-bottom: $spacing-05 !important; } }
+.py-lg-05 { @media only screen and (min-width: $break-lg-min) { padding-top: $spacing-05 !important; padding-bottom: $spacing-05 !important; } }
+.py-xl-05 { @media only screen and (min-width: $break-xl-min) { padding-top: $spacing-05 !important; padding-bottom: $spacing-05 !important; } }
+
 .p-45, .p-xs-45 { padding: $spacing-45 !important; }
 .p-sm-45 { @media only screen and (min-width: $break-sm-min) { padding: $spacing-45 !important; } }
 .p-md-45 { @media only screen and (min-width: $break-md-min) { padding: $spacing-45 !important; } }
 .p-lg-45 { @media only screen and (min-width: $break-lg-min) { padding: $spacing-45 !important; } }
 .p-xl-45 { @media only screen and (min-width: $break-xl-min) { padding: $spacing-45 !important; } }
+
+.px-45, .px-xs-45 { padding-left: $spacing-45 !important; padding-right: $spacing-45 !important; }
+.px-sm-45 { @media only screen and (min-width: $break-sm-min) { padding-left: $spacing-45 !important; padding-right: $spacing-45 !important; } }
+.px-md-45 { @media only screen and (min-width: $break-md-min) { padding-left: $spacing-45 !important; padding-right: $spacing-45 !important; } }
+.px-lg-45 { @media only screen and (min-width: $break-lg-min) { padding-left: $spacing-45 !important; padding-right: $spacing-45 !important; } }
+.px-xl-45 { @media only screen and (min-width: $break-xl-min) { padding-left: $spacing-45 !important; padding-right: $spacing-45 !important; } }
+
+.py-45, .py-xs-45 { padding-top: $spacing-45 !important; padding-bottom: $spacing-45 !important; }
+.py-sm-45 { @media only screen and (min-width: $break-sm-min) { padding-top: $spacing-45 !important; padding-bottom: $spacing-45 !important; } }
+.py-md-45 { @media only screen and (min-width: $break-md-min) { padding-top: $spacing-45 !important; padding-bottom: $spacing-45 !important; } }
+.py-lg-45 { @media only screen and (min-width: $break-lg-min) { padding-top: $spacing-45 !important; padding-bottom: $spacing-45 !important; } }
+.py-xl-45 { @media only screen and (min-width: $break-xl-min) { padding-top: $spacing-45 !important; padding-bottom: $spacing-45 !important; } }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

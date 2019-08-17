@@ -2,6 +2,7 @@
   "name": "tk-website",
   "version": "1.0.0",
   "description": "",
+  "homepage": "http://thomaskou.github.io",
   "main": "server.ts",
   "scripts": {
     "start": "react-scripts start",
@@ -40,6 +41,7 @@
     "@types/react-router-dom": "^4.3.4",
     "@types/redux-logger": "^3.0.7",
     "@types/redux-promise": "^0.5.28",
+    "gh-pages": "^2.1.1",
     "redux-devtools": "^3.5.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"

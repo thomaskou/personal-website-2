@@ -2,7 +2,6 @@
   "name": "tk-website",
   "version": "1.0.0",
   "description": "",
-  "homepage": "http://thomaskou.github.io",
   "main": "server.ts",
   "scripts": {
     "start": "react-scripts start",

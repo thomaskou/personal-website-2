@@ -1,7 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-// import { BrowserRouter } from "react-router-dom";
-import { HashRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./services/redux";
 import Navbar from "./components/Navbar/Navbar";
@@ -18,8 +16,7 @@ interface IProps {
 const App: React.FC<IProps> = (props: IProps): JSX.Element => {
     return (
         <PersistGate loading={null} persistor={persistor}>
-            {/* <BrowserRouter> */}
-            <HashRouter>
+            <BrowserRouter>
 
                 <Navbar/>
 
@@ -32,8 +29,7 @@ const App: React.FC<IProps> = (props: IProps): JSX.Element => {
                     <Route component={NotFound}/>
                 </Switch>
 
-            {/* </BrowserRouter> */}
-            </HashRouter>
+            </BrowserRouter>
         </PersistGate>
     );
 };

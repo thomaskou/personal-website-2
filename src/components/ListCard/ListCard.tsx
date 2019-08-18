@@ -7,6 +7,7 @@ interface IProps {
     boxList?: string[];
     description?: string[];
     image?: string;
+    link?: string;
 
     keyPrefix?: string;
     index: number;
@@ -14,7 +15,7 @@ interface IProps {
 
 const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
 
-    const {title, subtitle, grayText, boxList, description, image, keyPrefix, index} = props;
+    const {title, subtitle, grayText, boxList, description, image, link, keyPrefix, index} = props;
 
     function createBoxListItem(index: number): (boxItem: string, boxIndex: number) => ReactNode {
         return (boxItem: string, boxIndex: number): ReactNode => {
@@ -45,11 +46,18 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
         "overflow-hidden centered background-contained w-100 " +
         "height-10em height-sm-15em height-md-17-5em height-lg-20em height-xl-25em " +
         "mb-3 mb-lg-4";
+    
+    const imageNode: ReactNode = image ? <figure className={imageClasses} style={{backgroundImage: `url(${image})`}}/> : <React.Fragment/>;
 
     return (
         <div className={cardClasses}>
 
-            {image && <figure className={imageClasses} style={{backgroundImage: `url(${image})`}}/>}
+            {link
+                ? <a href={link} target="_blank" rel="noopener noreferrer">{imageNode}</a>
+                : imageNode
+            }
+
+
             {title && <strong className="text-uppercase font-size-125">{title}</strong>}
             {subtitle && <p className="text-capitalize my-1">{subtitle}</p>}
             {grayText && <p className="text-uppercase text-muted text-nowrap font-size-09">{grayText}</p>}

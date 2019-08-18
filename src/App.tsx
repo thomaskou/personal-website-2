@@ -9,6 +9,7 @@ import Projects from "./pages/Projects/Projects";
 import About from "./pages/About/About";
 // import Test from "./pages/Test/Test";
 import NotFound from "./pages/NotFound/NotFound";
+import GAListener from "./services/GAListener";
 
 interface IProps {
 }
@@ -17,18 +18,20 @@ const App: React.FC<IProps> = (props: IProps): JSX.Element => {
     return (
         <PersistGate loading={null} persistor={persistor}>
             <BrowserRouter>
+                <GAListener trackingId="UA-145825675-1">
 
-                <Navbar/>
+                    <Navbar/>
 
-                <Switch>
-                    <Route exact path="/" component={Homepage}/>
-                    <Route exact path="/experience" component={Experience}/>
-                    <Route exact path="/projects" component={Projects}/>
-                    <Route exact path="/about" component={About}/>
-                    {/* <Route exact path="/test" component={Test}/> */}
-                    <Route component={NotFound}/>
-                </Switch>
+                    <Switch>
+                        <Route exact path="/" component={Homepage}/>
+                        <Route exact path="/experience" component={Experience}/>
+                        <Route exact path="/projects" component={Projects}/>
+                        <Route exact path="/about" component={About}/>
+                        {/* <Route exact path="/test" component={Test}/> */}
+                        <Route component={NotFound}/>
+                    </Switch>
 
+                </GAListener>
             </BrowserRouter>
         </PersistGate>
     );

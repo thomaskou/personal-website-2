@@ -13,6 +13,7 @@ interface IProject {
     technologies?: string[];
     description?: string[];
     thumbnail?: string;
+    link?: string;
 }
 
 interface IProjectList {
@@ -23,9 +24,10 @@ const projects: IProjectList = {
     website: {
         title: "React-Snake / Personal Website v2",
         date: "August 2019",
-        technologies: ["TypeScript", "Node.js", "React", "Redux", "Firebase", "Sass", "Bootstrap", "REST"],
+        technologies: ["TypeScript", "Node.js", "React", "Redux", "AWS Amplify", "Firebase", "Sass", "Bootstrap", "REST"],
         description: ["A really cool website with an unnecessarily elaborate easter egg."],
         thumbnail: "/images/project-thumbnails/personal-website-v2.jpg",
+        link: "https://github.com/thomaskou/personal-website-2",
     },
     audioLights: {
         title: "Audio Lights",
@@ -33,6 +35,7 @@ const projects: IProjectList = {
         technologies: ["Python", "Raspberry Pi", "MQTT"],
         description: ["Visualizes microphone/music data live on an LED matrix."],
         thumbnail: "/images/project-thumbnails/led-bars.gif",
+        link: "https://github.com/thomaskou/RGB-Matrix-Audio-Visualizer",
     },
     // markov: {
     //     title: "Sentence Predictor",
@@ -46,6 +49,7 @@ const projects: IProjectList = {
         technologies: ["FL Studio", "YouTube", "MAMPlayer"],
         description: ["Producing and uploading arrangements and visualizations of instrumental songs."],
         thumbnail: "/images/project-thumbnails/mamplayer.gif",
+        link: "https://www.youtube.com/channel/UC5oszzMqSIO1NQOn30A4Tkg/videos",
     },
     gameboy: {
         title: "kfGB",
@@ -53,6 +57,7 @@ const projects: IProjectList = {
         technologies: ["Java"],
         description: ["A low-level emulator for the Nintendo Gameboy."],
         thumbnail: "/images/project-thumbnails/wip.jpg",
+        // link: "https://github.com/thomaskou/kfgb",
     },
 };
 
@@ -69,6 +74,7 @@ const Projects: React.FC<IProps> = (props: IProps): JSX.Element => {
                 boxList={item.technologies}
                 description={item.description}
                 image={item.thumbnail}
+                link={item.link}
 
                 keyPrefix="proj"
                 index={index}

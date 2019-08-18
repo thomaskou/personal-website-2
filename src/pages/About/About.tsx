@@ -50,7 +50,7 @@ const About: React.FC<IProps> = (props: IProps): JSX.Element => {
 
             <Container>
                 <div className={textContainerClasses}>
-                    <p {...headerProps}>Hi, I'm Thomas.</p>
+                    <h1 {...headerProps}>Hi, I'm Thomas.</h1>
                     <p {...bodyProps}>
                         I'm a Software Engineering student at the University of Waterloo.
                         I enjoy design, music composition, video production, writing, and making computers do things.

@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import "./ListCard.scss";
 
 interface IProps {
     title?: string;
@@ -7,6 +8,7 @@ interface IProps {
     boxList?: string[];
     description?: string[];
     image?: string;
+    video?: string;
     link?: string;
 
     keyPrefix?: string;
@@ -15,7 +17,7 @@ interface IProps {
 
 const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
 
-    const {title, subtitle, grayText, boxList, description, image, link, keyPrefix, index} = props;
+    const {title, subtitle, grayText, boxList, description, image, video, link, keyPrefix, index} = props;
 
     function createBoxListItem(index: number): (boxItem: string, boxIndex: number) => ReactNode {
         return (boxItem: string, boxIndex: number): ReactNode => {
@@ -43,22 +45,27 @@ const ListCard: React.FC<IProps> = (props: IProps): JSX.Element => {
         "bg-color-white shadow-black-diag";     // Background and shadow
 
     const imageClasses: string =
+        "list-card-image-container position-relative " +
         "overflow-hidden centered background-contained w-100 " +
         "height-10em height-sm-15em height-md-17-5em height-lg-20em height-xl-25em " +
         "mb-3 mb-lg-4";
     
     const imageNode: ReactNode = image ? <figure className={imageClasses} style={{backgroundImage: `url(${image})`}}/> : <React.Fragment/>;
+    const videoNode: ReactNode = video ? <figure className={imageClasses}><video loop muted autoPlay><source src={video} type="video/mp4"/></video></figure> : <React.Fragment/>;
+    const imgOrVideoNode: ReactNode = image ? imageNode : (video ? videoNode : <React.Fragment/>);
+    const titleNode: ReactNode = title ? <strong className="text-uppercase font-size-125">{title}</strong> : <React.Fragment/>;
 
     return (
         <div className={cardClasses}>
 
             {link
-                ? <a href={link} target="_blank" rel="noopener noreferrer">{imageNode}</a>
-                : imageNode
+                ? <a href={link} target="_blank" rel="noopener noreferrer">{imgOrVideoNode}</a>
+                : imgOrVideoNode
             }
-
-
-            {title && <strong className="text-uppercase font-size-125">{title}</strong>}
+            {link
+                ? <a href={link} target="_blank" rel="noopener noreferrer" className="text-black">{titleNode}</a>
+                : titleNode
+            }
             {subtitle && <p className="text-capitalize my-1">{subtitle}</p>}
             {grayText && <p className="text-uppercase text-muted text-nowrap font-size-09">{grayText}</p>}
 

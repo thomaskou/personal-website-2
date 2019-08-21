@@ -13,6 +13,7 @@ interface IProject {
     technologies?: string[];
     description?: string[];
     thumbnail?: string;
+    video?: string;
     link?: string;
 }
 
@@ -34,22 +35,8 @@ const projects: IProjectList = {
         date: "November 2018",
         technologies: ["Python", "Raspberry Pi", "MQTT"],
         description: ["Visualizes microphone/music data live on an LED matrix."],
-        thumbnail: "/images/project-thumbnails/led-bars.gif",
+        video: "/images/project-thumbnails/led-bars.mp4",
         link: "https://github.com/thomaskou/RGB-Matrix-Audio-Visualizer",
-    },
-    // markov: {
-    //     title: "Sentence Predictor",
-    //     date: "November 2018",
-    //     technologies: ["Java"],
-    //     description: ["Builds sentences using Markov chain information from file input."],
-    // },
-    vgms: {
-        title: "Instrumental Music Production",
-        date: "Ongoing",
-        technologies: ["FL Studio", "YouTube", "MAMPlayer"],
-        description: ["Producing and uploading arrangements and visualizations of instrumental songs."],
-        thumbnail: "/images/project-thumbnails/mamplayer.gif",
-        link: "https://www.youtube.com/channel/UC5oszzMqSIO1NQOn30A4Tkg/videos",
     },
     gameboy: {
         title: "kfGB",
@@ -58,6 +45,56 @@ const projects: IProjectList = {
         description: ["A low-level emulator for the Nintendo Gameboy."],
         thumbnail: "/images/project-thumbnails/wip.jpg",
         // link: "https://github.com/thomaskou/kfgb",
+    },
+    forum: {
+        title: "Web Forum API",
+        date: "January 2019",
+        technologies: ["JavaScript", "Node.js", "Express", "MySQL"],
+        description: ["A web forum API/server. Create accounts, submit posts, view in chronological order."],
+        link: "https://github.com/thomaskou/tk-forum",
+    },
+    markov: {
+        title: "Sentence Predictor",
+        date: "November 2018",
+        technologies: ["Java"],
+        description: ["Builds sentences using Markov chain information from file input."],
+        link: "https://github.com/thomaskou/markovprediction",
+    },
+    chip8: {
+        title: "CHIP-8 Emulator",
+        date: "January 2018",
+        technologies: ["Java"],
+        description: ["An interpreter/emulator for the CHIP-8 language/system."],
+        link: "https://github.com/thomaskou/CHIP-8-Java",
+    },
+    slideDuels: {
+        title: "Slide Duels",
+        date: "June 2017",
+        technologies: ["Java", "Phidget", "Greenfoot"],
+        video: "/images/project-thumbnails/slide-duels.mp4",
+        description: ["A rapid-fire collection of 1v1 minigames controlled by Phidget sliders."],
+    },
+    reversi: {
+        title: "Java Reversi",
+        date: "October 2016",
+        technologies: ["Java", "Swing"],
+        video: "/images/project-thumbnails/reversi.mp4",
+        description: ["The Reversi board game recreated in Java; supports 2P or 1P against a CPU."],
+    },
+    solaire: {
+        title: "Solaire",
+        date: "June 2016",
+        technologies: ["GameMaker Studio"],
+        video: "/images/project-thumbnails/solaire.mp4",
+        description: ['A sprawling, "Metroidvania"-inspired open-world platformer fangame.'],
+    },
+    vgms: {
+        title: "Instrumental Music Production",
+        date: "Ongoing",
+        technologies: ["FL Studio", "YouTube", "MAMPlayer"],
+        description: ["Producing and uploading arrangements and visualizations of instrumental songs."],
+        video: "/images/project-thumbnails/mamplayer.mp4",
+        link: "https://www.youtube.com/channel/UC5oszzMqSIO1NQOn30A4Tkg/videos",
     },
 };
 
@@ -74,6 +111,7 @@ const Projects: React.FC<IProps> = (props: IProps): JSX.Element => {
                 boxList={item.technologies}
                 description={item.description}
                 image={item.thumbnail}
+                video={item.video}
                 link={item.link}
 
                 keyPrefix="proj"

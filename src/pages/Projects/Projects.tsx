@@ -38,14 +38,14 @@ const projects: IProjectList = {
         video: "/images/project-thumbnails/led-bars.mp4",
         link: "https://github.com/thomaskou/RGB-Matrix-Audio-Visualizer",
     },
-    gameboy: {
-        title: "kfGB",
-        date: "Coming soon",
-        technologies: ["Java"],
-        description: ["A low-level emulator for the Nintendo Gameboy."],
-        thumbnail: "/images/project-thumbnails/wip.jpg",
-        // link: "https://github.com/thomaskou/kfgb",
-    },
+    // gameboy: {
+    //     title: "kfGB",
+    //     date: "Coming soon",
+    //     technologies: ["Java"],
+    //     description: ["A low-level emulator for the Nintendo Gameboy."],
+    //     thumbnail: "/images/project-thumbnails/wip.jpg",
+    //     // link: "https://github.com/thomaskou/kfgb",
+    // },
     forum: {
         title: "Web Forum API",
         date: "January 2019",
@@ -60,13 +60,13 @@ const projects: IProjectList = {
         description: ["Builds sentences using Markov chain information from file input."],
         link: "https://github.com/thomaskou/markovprediction",
     },
-    chip8: {
-        title: "CHIP-8 Emulator",
-        date: "January 2018",
-        technologies: ["Java"],
-        description: ["An interpreter/emulator for the CHIP-8 language/system."],
-        link: "https://github.com/thomaskou/CHIP-8-Java",
-    },
+    // chip8: {
+    //     title: "CHIP-8 Emulator",
+    //     date: "January 2018",
+    //     technologies: ["Java"],
+    //     description: ["An interpreter/emulator for the CHIP-8 language/system."],
+    //     link: "https://github.com/thomaskou/CHIP-8-Java",
+    // },
     slideDuels: {
         title: "Slide Duels",
         date: "June 2017",

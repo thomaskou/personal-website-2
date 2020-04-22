@@ -20,11 +20,19 @@ interface IExperienceList {
 }
 
 const experience: IExperienceList = {
+    wish: {
+        company: "Wish",
+        position: "Software engineer intern",
+        date: <React.Fragment>January 2020 -> <wbr/>April 2020</React.Fragment>,
+        location: "San Francisco, USA",
+        description: ["Payments team; primarily Python backend development."],
+        technologies: ["Python", "MongoDB", "JavaScript", "Braintree/PayPal", "SQL", "Tornado", "iOS (Swift)", "Android (Java, Kotlin)", "Redux", "REST"],
+    },
     prizm: {
         company: "Prizm Media Inc.",
         position: "Junior web developer",
         date: "April 2019 -> August 2019",
-        location: "Vancouver, BC",
+        location: "Vancouver, Canada",
         description: ["Full-stack web/mobile software developer."],
         technologies: ["TypeScript", "Node.js", "React (Native)", "Express", "Redux", "iOS/Android", "Sass", "Bootstrap", "LambdaTest", "CircleCI", "REST", "SOAP"],
     },
@@ -32,7 +40,7 @@ const experience: IExperienceList = {
         company: "Simon Fraser University CODE",
         position: "Digital media intern",
         date: "August 2017",
-        location: "Burnaby, BC",
+        location: "Burnaby, Canada",
         description: ["Designed/edited graphics and videos for online courses."],
         technologies: ["Photoshop", "Premiere Pro", "HTML", "CSS", "Hype 3"],
     },
@@ -40,7 +48,7 @@ const experience: IExperienceList = {
         company: "STEM Tutor",
         position: "Math/physics/chemistry tutor",
         date: <React.Fragment>October 2016 -> <wbr/>April 2018</React.Fragment>,
-        location: "Burnaby, BC",
+        location: "Burnaby, Canada",
         description: ["Tutored elementary and high school students."],
     },
 };

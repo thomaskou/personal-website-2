@@ -52,8 +52,8 @@ const About: React.FC<IProps> = (props: IProps): JSX.Element => {
                 <div className={textContainerClasses}>
                     <h1 {...headerProps}>Hi, I'm Thomas.</h1>
                     <p {...bodyProps}>
-                        I'm a Software Engineering student at the University of Waterloo.
-                        I enjoy design, music composition, video production, writing, and making computers do things.
+                        I'm a Computer Science student at the University of Waterloo.
+                        I enjoy art, music composition, video production, writing, and making computers do things.
                     </p>
                 </div>
 

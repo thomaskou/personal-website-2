@@ -24,10 +24,10 @@ const navLinks: INavbarLinkList = {
         text: "Experience",
         route: "/experience",
     },
-    projects: {
-        text: "Projects",
-        route: "/projects",
-    },
+    // projects: {
+    //     text: "Projects",
+    //     route: "/projects",
+    // },
     about: {
         text: "About",
         route: "/about",

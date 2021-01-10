@@ -20,13 +20,21 @@ interface IExperienceList {
 }
 
 const experience: IExperienceList = {
+    fispan: {
+        company: "FISPAN",
+        position: "Software developer co-op",
+        date: <React.Fragment>September 2020 -> <wbr/>December 2020</React.Fragment>,
+        location: "Remote (Vancouver, Canada)",
+        description: ["ERP development team; full-stack fintech development."],
+        technologies: ["Kotlin", "Java", "Spring", "Spring Boot", "JavaScript", "React", "Redux"],
+    },
     wish: {
         company: "Wish",
         position: "Software engineer intern",
         date: <React.Fragment>January 2020 -> <wbr/>April 2020</React.Fragment>,
         location: "San Francisco, USA",
         description: ["Payments team; primarily Python backend development."],
-        technologies: ["Python", "MongoDB", "JavaScript", "Braintree/PayPal", "SQL", "Tornado", "iOS (Swift)", "Android (Java, Kotlin)", "Redux", "REST"],
+        technologies: ["Python", "MongoDB", "JavaScript", "Braintree/PayPal", "SQL", "iOS (Swift)", "Android (Java, Kotlin)", "Redux"],
     },
     prizm: {
         company: "Prizm Media Inc.",
@@ -34,7 +42,7 @@ const experience: IExperienceList = {
         date: "April 2019 -> August 2019",
         location: "Vancouver, Canada",
         description: ["Full-stack web/mobile software developer."],
-        technologies: ["TypeScript", "Node.js", "React (Native)", "Express", "Redux", "iOS/Android", "Sass", "Bootstrap", "LambdaTest", "CircleCI", "REST", "SOAP"],
+        technologies: ["TypeScript", "Node.js", "React (Native)", "Express", "Redux", "iOS/Android", "Sass", "LambdaTest", "CircleCI"],
     },
     sfu: {
         company: "Simon Fraser University CODE",

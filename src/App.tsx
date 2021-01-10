@@ -25,7 +25,7 @@ const App: React.FC<IProps> = (props: IProps): JSX.Element => {
                     <Switch>
                         <Route exact path="/" component={Homepage}/>
                         <Route exact path="/experience" component={Experience}/>
-                        <Route exact path="/projects" component={Projects}/>
+                        {/* <Route exact path="/projects" component={Projects}/> */}
                         <Route exact path="/about" component={About}/>
                         {/* <Route exact path="/test" component={Test}/> */}
                         <Route component={NotFound}/>

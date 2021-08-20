@@ -20,6 +20,14 @@ interface IExperienceList {
 }
 
 const experience: IExperienceList = {
+    nvidia: {
+        company: "NVIDIA",
+        position: "Software engineer intern",
+        date: <React.Fragment>May 2021 -> <wbr/>August 2021</React.Fragment>,
+        location: "Remote (Santa Clara, USA)",
+        description: ["GeForce NOW Cascade development team; full-stack development."],
+        technologies: ["Python", "Flask", "AWS", "TypeScript", "React", "Redux"],
+    },
     fispan: {
         company: "FISPAN",
         position: "Software developer co-op",
